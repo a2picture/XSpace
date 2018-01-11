@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">XSpace</string>
+    <string name="nav_home">主页</string>
+    <string name="nav_hot">热门</string>
+    <string name="nav_user">个人中心</string>
+    <string name="nav_find">发现</string>
+</resources>

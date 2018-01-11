@@ -1,0 +1,888 @@
+{
+  "page": "homeFragment", 
+  "templateModules": [
+    {
+      "templateId": "template_grid_2", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        },  {
+          "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        },  {
+          "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "更多...", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_grid", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/0bf15aca2a5a3d371d04275c2b208e2a.png?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集0", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果0", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题2", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果2", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题3", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果3", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_grid", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题4", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果4", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集5", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果5", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题6", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果6", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题7", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果7", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题8", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果8", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题9", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果9", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/71f39f985df512d0d9fb52b82737bcf5.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集10", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果10", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_grid", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/d2f0bbf7b08ea83bff11e51d950c3144.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "模板标题11", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果11", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题12", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果12", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/3a5752f4b99d70debee8d099ef6a49a7.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "模板标题13", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果13", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题14", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果14", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集15", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果15", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题16", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果16", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_grid", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "中文预告", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题17", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果17", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题18", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果18", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题19", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果19", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/01bd15ca04dc482177de2b7b2c1c0040.png?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集20", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果20", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题21", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果21", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题22", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果22", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题23", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果23", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题24", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果24", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集25", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果25", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题26", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果26", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题27", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果27", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题28", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果28", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题29", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果29", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/fa978756b844c4facbc08656a9916415.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集30", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果30", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题31", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果31", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题32", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果32", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题33", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果33", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题34", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果34", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集35", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果35", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题36", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果36", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题37", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果37", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题38", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果38", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题39", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果39", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/5bc4adc33bfdce0c7cbf245d99db0460.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集40", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果40", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题41", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果41", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题42", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果42", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题43", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果43", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题44", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果44", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集45", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果45", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题46", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果46", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题47", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果47", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题48", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果48", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题49", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果49", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/be945b24182e6a268bdd66f054148f47.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集50", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果50", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题51", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果51", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题52", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果52", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题53", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果53", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题54", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果54", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集55", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果55", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题56", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果56", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题57", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果57", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题58", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果58", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题59", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果59", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/d79f42c7fa6914afdb47644e0dfa9d09.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集60", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果60", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题61", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果61", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题62", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果62", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题63", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果63", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题64", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果64", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "精选图集65", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果65", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题66", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果66", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题67", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果67", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题68", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果68", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题69", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果69", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/8164ded95cfde8c5f42acf243c6ca3e6.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集70", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果70", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题71", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果71", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题72", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果72", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/a57744110ddbaa1e99d148a01c1b1bd8.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "模板标题73", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果73", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题74", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果74", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "http://img.kaiyanapp.com/ce225210636a1d9ee4804bed55437698.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集75", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果75", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题76", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果76", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题77", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果77", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题78", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果78", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题79", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果79", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/ec186dbb94a89ca34876f3d24a9dccb1.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集80", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果80", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题81", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果81", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题82", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果82", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题83", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果83", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/ce225210636a1d9ee4804bed55437698.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "模板标题84", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果84", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "http://img.kaiyanapp.com/8581b06aa17c7dbe8970e4c27bbdbd98.png?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集85", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果85", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题86", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果86", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题87", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果87", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题88", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果88", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题89", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果89", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_cover", 
+      "img_url": "http://img.kaiyanapp.com/f0efaa8ad7eb4fe407a2b2d6cd60052b.png?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集90", 
+      "subtitle": "#搞笑#全能搞笑集锦", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果90", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题91", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果91", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题92", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果92", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "模板标题93", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果93", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题94", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果94", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_banner", 
+      "img_url": "http://img.kaiyanapp.com/7d875f63d28804d0635ce8b286e047c5.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "精选图集95", 
+      "subtitle": "更多", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果95", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题96", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果96", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题97", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果97", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题98", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果98", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "模板标题99", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果99", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_end_banner", 
+      "description": "^_^讨厌、都被你看光了*_*", 
+      "errorCode": 0
+    }
+  ], 
+  "errorCode": 200, 
+  "message": "OK"
+}
