@@ -2,6 +2,7 @@ package com.xspace.ui.template;
 
 import android.content.Context;
 import android.net.Uri;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class TemplateGrid extends BaseView
     }
 
     @Override
-    public void fillData(BaseModule module)
+    public void fillData(final BaseModule module)
     {
         if (module == null || !(module instanceof TemplateModule))
         {
@@ -72,7 +73,7 @@ public class TemplateGrid extends BaseView
         }
         int i = 0;
         LinearLayout line = null;
-        for (TemplateModule.TemplateItem item : ((TemplateModule) module).templateItems)
+        for (final TemplateModule.TemplateItem item : ((TemplateModule) module).templateItems)
         {
             if (i % maxCow == 0)
             {
@@ -85,7 +86,14 @@ public class TemplateGrid extends BaseView
             LinearLayout itemContainer = new LinearLayout(mContext);
             itemContainer.setOrientation(VERTICAL);
             itemContainer.setLayoutParams(itemParams);
-
+            itemContainer.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    onItemClick(item);
+                }
+            });
             // item标题
             TextView itemTitle = new TextView(mContext);
             itemTitle.setLayoutParams(itemParams);

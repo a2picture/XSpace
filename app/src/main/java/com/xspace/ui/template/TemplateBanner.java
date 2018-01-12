@@ -56,7 +56,7 @@ public class TemplateBanner extends BaseView
     }
 
     @Override
-    public void fillData(BaseModule module)
+    public void fillData(final BaseModule module)
     {
         if (module == null || !(module instanceof TemplateModule))
         {
@@ -65,6 +65,14 @@ public class TemplateBanner extends BaseView
         title.setText(((TemplateModule) module).title);
         more.setText(((TemplateModule) module).subtitle);
         icon.setImageURI(Uri.parse(((TemplateModule) module).img_url));
+        this.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                onItemClick(module);
+            }
+        });
         addTemplateView();
     }
 

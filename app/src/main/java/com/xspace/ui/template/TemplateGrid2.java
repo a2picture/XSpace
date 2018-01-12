@@ -3,6 +3,7 @@ package com.xspace.ui.template;
 import android.content.Context;
 import android.net.Uri;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -60,7 +61,7 @@ public class TemplateGrid2 extends BaseView
         }
         int i = 0;
         LinearLayout line = null;
-        for (TemplateModule.TemplateItem item : ((TemplateModule) module).templateItems)
+        for (final TemplateModule.TemplateItem item : ((TemplateModule) module).templateItems)
         {
             if (i % maxCow == 0)
             {
@@ -74,7 +75,14 @@ public class TemplateGrid2 extends BaseView
             LinearLayout itemContainer = new LinearLayout(mContext);
             itemContainer.setOrientation(VERTICAL);
             itemContainer.setLayoutParams(new LayoutParams(width / maxCow, -2));
-
+            itemContainer.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    onItemClick(item);
+                }
+            });
             // 图标, 圆图
             SimpleDraweeView itemImg = new SimpleDraweeView(mContext);
             itemImg.setLayoutParams(new LayoutParams(width / maxCow, width / maxCow));

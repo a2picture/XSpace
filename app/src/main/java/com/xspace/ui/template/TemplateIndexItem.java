@@ -61,14 +61,22 @@ public class TemplateIndexItem extends BaseView
     }
 
     @Override
-    public void fillData(BaseModule module)
+    public void fillData(final BaseModule module)
     {
         if (module == null || !(module instanceof TemplateModule))
         {
             return;
         }
+        setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                onItemClick(module);
+            }
+        });
         chapterTitle.setText(((TemplateModule) module).title);
-        chapterDesc.setText("\u3000"+((TemplateModule) module).description);
+        chapterDesc.setText("\u3000" + ((TemplateModule) module).description);
         chapterImg.setImageURI(Uri.parse(((TemplateModule) module).img_url));
         addTemplateView();
     }

@@ -6,9 +6,12 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.xspace.module.BaseModule;
+import com.xspace.ui.jumputils.CategoryUtil;
 
 public abstract class BaseView extends LinearLayout
 {
+    protected int viewCode = 0;
+
     protected Context mContext;
 
     protected BaseModule module;
@@ -23,6 +26,11 @@ public abstract class BaseView extends LinearLayout
     {
         super(context, attrs);
         mContext = context;
+    }
+
+    protected void onItemClick(BaseModule module)
+    {
+        CategoryUtil.jumpByTargetLink(mContext, module, viewCode);
     }
 
     public BaseModule getModule()

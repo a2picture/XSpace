@@ -3,6 +3,7 @@ package com.xspace.ui.template;
 import android.content.Context;
 import android.net.Uri;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class TemplateCover extends BaseView
         this.setGravity(Gravity.CENTER);
         this.setPadding(0, 0, 0, 10);
         this.setLayoutParams(new LayoutParams(-1, -2));
+
     }
 
     @Override
@@ -45,7 +47,7 @@ public class TemplateCover extends BaseView
     }
 
     @Override
-    public void fillData(BaseModule module)
+    public void fillData(final BaseModule module)
     {
         if (module == null || !(module instanceof TemplateModule))
         {
@@ -61,7 +63,14 @@ public class TemplateCover extends BaseView
             subtitle = new TextView(mContext);
         }
         int width = DisplayUtil.screenWidthPx(mContext);
-
+        this.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                onItemClick(module);
+            }
+        });
         simpleDraweeView.setLayoutParams(new LayoutParams(width, (int) (width * 0.33333)));
         simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
         subtitle.setText(((TemplateModule) module).subtitle);
