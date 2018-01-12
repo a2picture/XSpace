@@ -32,7 +32,6 @@ public class TemplateCover extends BaseView
         this.setGravity(Gravity.CENTER);
         this.setPadding(0, 0, 0, 10);
         this.setLayoutParams(new LayoutParams(-1, -2));
-
     }
 
     @Override

@@ -50,11 +50,13 @@ public class CategoryUtil
         {
             Intent intent = new Intent(mContext, UserActivity.class);
             mContext.startActivity(intent);
+            return true;
         }
         else if (AddressManager.Native_Category.equals(item.link))
         {
             Intent intent = new Intent(mContext, CategoryActivity.class);
             mContext.startActivity(intent);
+            return true;
         }
         return false;
     }

@@ -3,11 +3,12 @@ package com.xspace.ui.uihelper;
 import android.content.Context;
 
 import com.xspace.ui.template.BaseView;
-import com.xspace.ui.template.TemplateGrid;
 import com.xspace.ui.template.TemplateBanner;
 import com.xspace.ui.template.TemplateCover;
 import com.xspace.ui.template.TemplateEndBanner;
+import com.xspace.ui.template.TemplateGrid;
 import com.xspace.ui.template.TemplateGrid2;
+import com.xspace.ui.template.TemplateGrid3;
 import com.xspace.ui.template.TemplateIndexItem;
 
 public class TemplateManager
@@ -41,6 +42,10 @@ public class TemplateManager
         else if (tempId.equals(TemplateConstant.template_grid_2))
         {
             return new TemplateGrid2(context);
+        }
+        else if (tempId.equals(TemplateConstant.template_grid_3))
+        {
+            return new TemplateGrid3(context);
         }
         return null;
     }
