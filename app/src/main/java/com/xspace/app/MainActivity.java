@@ -1,5 +1,7 @@
 package com.xspace.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,6 +16,7 @@ import com.xspace.layout.FragmentFind;
 import com.xspace.layout.FragmentHome;
 import com.xspace.layout.FragmentHot;
 import com.xspace.layout.FragmentUser;
+import com.xspace.ui.view.NoScrollViewPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,7 @@ public class MainActivity extends BaseActivity
 {
     private static String TAG = "";
 
-    private ViewPager mainContainer;
+    private NoScrollViewPage mainContainer;
 
     private BottomNavigationView navTab;
 
@@ -46,6 +49,24 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("提示");
+        builder.setMessage("客官再玩一会嘛，咩^_^");
+        builder.setPositiveButton("滚", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                finish();
+            }
+        });
+        builder.setNegativeButton("再看看", null);
+        builder.show();
     }
 
     private void initView()
