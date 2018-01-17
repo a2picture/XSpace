@@ -2,6 +2,7 @@ package com.xspace.ui.jumputils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.xspace.app.CategoryActivity;
 import com.xspace.app.UserActivity;
@@ -16,18 +17,22 @@ public class CategoryUtil
 
     private static String TypeHtml5 = "html5";
 
+    private static String TypeOther = "other";
+
     public static boolean jumpByTargetLink(Context mContext, BaseModule module, int viewFrom)
     {
-        TemplateModule.TemplateItem item = new TemplateModule.TemplateItem();
+        if (module == null)
+        {
+            return false;
+        }
+        TemplateModule item = null;
         if (module instanceof TemplateModule)
         {
-            item.link = ((TemplateModule) module).link;
-            item.type = ((TemplateModule) module).type;
-            item.title = ((TemplateModule) module).title;
+            item = (TemplateModule) module;
         }
-        else if (module instanceof TemplateModule.TemplateItem)
+        else
         {
-            item = (TemplateModule.TemplateItem) module;
+            return false;
         }
         if (TypeNative.equals(item.type))
         {
@@ -41,10 +46,25 @@ public class CategoryUtil
         {
             return jumpToHtml5(mContext, item, viewFrom);
         }
+        else if (TypeOther.equals(item.type))
+        {
+            if (item.tag == null)
+            {
+                return false;
+            }
+            if (item.tag.equals("a"))
+            {
+                Toast.makeText(mContext, "添加到下载......", Toast.LENGTH_SHORT).show();
+            }
+            else if (item.tag.equals("b"))
+            {
+                Toast.makeText(mContext, "b", Toast.LENGTH_SHORT).show();
+            }
+        }
         return false;
     }
 
-    private static boolean jumpToNative(Context mContext, TemplateModule.TemplateItem item, int viewFrom)
+    private static boolean jumpToNative(Context mContext, TemplateModule item, int viewFrom)
     {
         if (AddressManager.Native_Usercenter.equals(item.link))
         {
@@ -55,6 +75,7 @@ public class CategoryUtil
         else if (AddressManager.Native_Category.equals(item.link))
         {
             Intent intent = new Intent(mContext, CategoryActivity.class);
+            intent.putExtra("", item);
             mContext.startActivity(intent);
             return true;
         }

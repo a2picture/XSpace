@@ -10,6 +10,7 @@ import com.xspace.ui.template.TemplateGrid;
 import com.xspace.ui.template.TemplateGrid2;
 import com.xspace.ui.template.TemplateGrid3;
 import com.xspace.ui.template.TemplateIndexItem;
+import com.xspace.ui.template.TemplateLineText;
 
 public class TemplateManager
 {
@@ -46,6 +47,10 @@ public class TemplateManager
         else if (tempId.equals(TemplateConstant.template_grid_3))
         {
             return new TemplateGrid3(context);
+        }
+        else if (tempId.equals(TemplateConstant.template_line_text))
+        {
+            return new TemplateLineText(context);
         }
         return null;
     }

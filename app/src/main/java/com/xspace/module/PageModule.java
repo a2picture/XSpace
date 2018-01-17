@@ -10,6 +10,4 @@ public class PageModule extends BaseModule
     public String page;
 
     public ArrayList<TemplateModule> templateModules ;
-
-
 }

@@ -15,4 +15,6 @@ public class TemplateConstant
     public static final String template_grid_2 = "template_grid_2";
 
     public static final String template_grid_3 = "template_grid_3";
+
+    public static final String template_line_text = "template_line_text";
 }

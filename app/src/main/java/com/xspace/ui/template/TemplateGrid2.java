@@ -63,7 +63,7 @@ public class TemplateGrid2 extends BaseView {
         }
         int i = 0;
         LinearLayout line = null;
-        for (final TemplateModule.TemplateItem item : ((TemplateModule) module).templateItems) {
+        for (final TemplateModule item : ((TemplateModule) module).templateItems) {
             if (i % maxCow == 0) {
                 // 一行
                 line = new LinearLayout(mContext);

@@ -118,7 +118,7 @@ public class TemplateGrid3 extends BaseView
         auto();
     }
 
-    private void addDot(ArrayList<TemplateModule.TemplateItem> items)
+    private void addDot(ArrayList<TemplateModule> items)
     {
         dotContainer = new LinearLayout(mContext);
         dotContainer.setLayoutParams(new LayoutParams(-1, -2));
@@ -187,9 +187,9 @@ public class TemplateGrid3 extends BaseView
 
     class MyAdapter extends PagerAdapter
     {
-        private ArrayList<TemplateModule.TemplateItem> items;
+        private ArrayList<TemplateModule> items;
 
-        public void setItems(ArrayList<TemplateModule.TemplateItem> items)
+        public void setItems(ArrayList<TemplateModule> items)
         {
             if (items == null || items.size() == 0)
             {

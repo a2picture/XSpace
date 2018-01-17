@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.xspace.layout.FragmentFind;
@@ -57,7 +56,7 @@ public class MainActivity extends BaseActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("提示");
         builder.setMessage("客官再玩一会嘛，咩^_^");
-        builder.setPositiveButton("滚", new DialogInterface.OnClickListener()
+        builder.setPositiveButton("Fuck Off", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
@@ -98,7 +97,7 @@ public class MainActivity extends BaseActivity
             {
                 int[] resId = {R.id.nav_home, R.id.nav_hot, R.id.nav_find, R.id.nav_user};
                 navTab.setSelectedItemId(resId[position]);
-                Log.d("jixiongxu", "currentPage=" + position);
+
             }
 
             @Override
