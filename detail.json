@@ -1,0 +1,221 @@
+{
+  "page": "homeFragment", 
+  "templateModules": [
+    {
+      "templateId": "template_grid_3", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "大图精选", 
+      "description": "「在这世界的角落」中文预告98", 
+      "templateItems": [
+        {
+          "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+          "title": "在", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+    
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "在这世角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+       
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "界的角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "在这世", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+      
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "在这世落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+       
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "在角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+         
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "界的角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "在这世角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+          "title": "", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }, 
+        {
+          "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+          "title": "界的角落", 
+          "description": "「在这世界的角落」中文预告", 
+          "errorCode": 0
+        }
+      ], 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "img_url": "http://img.kaiyanapp.com/24cf8a38a07f0b26228b769823320fdf.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "名称", 
+      "subtitle": "Vengeanc：A Love Story", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "别名", 
+      "subtitle": "复仇：一个爱情故事", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "年份", 
+      "subtitle": "2017", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "地区", 
+      "subtitle": "美国", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "类型", 
+      "subtitle": "惊悚", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "字幕", 
+      "subtitle": "中文/英文", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "导演", 
+      "subtitle": "藏方政俊", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "主演", 
+      "subtitle": "藏方政俊、伊藤淳史、忽那汐里、户田昌宏、大久保佳代子、青户浩香、木村多江", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "豆瓣评分", 
+      "subtitle": "7.7（form 11 user）", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "更新日期", 
+      "subtitle": "2018-01-17", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "title": "上映日期", 
+      "subtitle": "2017-03-27", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "剧情介绍", 
+      "subtitle": "人气游戏《猫咪后院》，将以《猫咪后院之家》为名拍摄成电影，并于2017年4月8日在日本全国上映。由藏方政俊执导，伊藤淳史主演。主人公是一位怀才不遇的小说家佐久本胜。移居到悠闲宁静的地区，虽然萎靡不振，但仍有一只猫跑来他的住所，故事由此开始。", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+    {
+      "templateId": "template_line_text", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "下载地址", 
+      "link": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "subtitle": "ftp://h:h@piaohua668.com:12311/猫咪后院之家BD日语中字[飘花www.piaohua.com].rmvb", 
+      "description": "", 
+      "tag": "a", 
+      "type": "other", 
+      "errorCode": 0
+    },
+	 {
+      "templateId": "template_banner", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "推荐", 
+      "subtitle": "", 
+      "description": "", 
+      "errorCode": 0
+    }, 
+	  {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/5856c8e5dc037fd344370de435edb735.jpeg?imageMogr2/quality/60/format/jpg", 
+      "title": "推荐电影", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果4", 
+      "errorCode": 0
+    },
+	 {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/54b1362e47f3889e902c79b6158e6cca.png?imageMogr2/quality/60/format/jpg", 
+      "title": "推荐电影", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果4", 
+      "errorCode": 0
+    },
+	 {
+      "templateId": "template_index_item", 
+      "img_url": "http://img.kaiyanapp.com/0de65c9542dd8df26aec243828cf1466.png?imageMogr2/quality/60/format/jpg", 
+      "title": "推荐电影", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果4", 
+      "errorCode": 0
+    },
+	 {
+      "templateId": "template_index_item", 
+      "img_url": "https://s1.tuchong.com/content-image/c64b2b54057eea977ba9250a93e235a3.jpg", 
+      "title": "推荐电影", 
+      "description": "首先要明确1个概念，在android上，“沉浸式”叫沉浸式全屏模式以及透明化系统状态栏其实这个也没啥好说的，不管你是android粉还是IOS粉，在日常玩机的过程中，都见过这种界面效果4", 
+      "errorCode": 0
+    }
+	, {
+      "templateId": "template_end_banner", 
+      "description": "^_^讨厌、都被你看光了*_*", 
+      "errorCode": 0
+    }
+  ], 
+  "errorCode": 200, 
+  "message": "OK"
+}

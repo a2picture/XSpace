@@ -25,7 +25,9 @@ public class CategoryUtil
         {
             return false;
         }
-        TemplateModule item = null;
+
+        TemplateModule item;
+
         if (module instanceof TemplateModule)
         {
             item = (TemplateModule) module;
@@ -48,18 +50,26 @@ public class CategoryUtil
         }
         else if (TypeOther.equals(item.type))
         {
-            if (item.tag == null)
-            {
-                return false;
-            }
-            if (item.tag.equals("a"))
-            {
-                Toast.makeText(mContext, "添加到下载......", Toast.LENGTH_SHORT).show();
-            }
-            else if (item.tag.equals("b"))
-            {
-                Toast.makeText(mContext, "b", Toast.LENGTH_SHORT).show();
-            }
+            return jumpToOther(mContext, item);
+        }
+        return false;
+    }
+
+    private static boolean jumpToOther(Context mContext, TemplateModule item)
+    {
+        if (item.tag == null)
+        {
+            return true;
+        }
+        if (item.tag.equals("a"))
+        {
+            Toast.makeText(mContext, "添加到下载......", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (item.tag.equals("b"))
+        {
+            Toast.makeText(mContext, "b", Toast.LENGTH_SHORT).show();
+            return true;
         }
         return false;
     }
