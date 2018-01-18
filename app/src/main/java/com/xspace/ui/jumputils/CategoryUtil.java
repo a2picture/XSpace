@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.xspace.app.CategoryActivity;
+import com.xspace.app.AboutActivity;
+import com.xspace.app.DetailActivity;
+import com.xspace.app.LocalActivity;
 import com.xspace.app.UserActivity;
+import com.xspace.app.WebActivity;
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
 
@@ -79,25 +82,52 @@ public class CategoryUtil
         if (AddressManager.Native_Usercenter.equals(item.link))
         {
             Intent intent = new Intent(mContext, UserActivity.class);
+            intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
         }
         else if (AddressManager.Native_Category.equals(item.link))
         {
-            Intent intent = new Intent(mContext, CategoryActivity.class);
-            intent.putExtra("", item);
+            Intent intent = new Intent(mContext, DetailActivity.class);
+            intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
+        }
+        else if (AddressManager.Native_History.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, LocalActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+        }
+        else if (AddressManager.Native_Local.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, LocalActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+        }
+        else if (AddressManager.Native_About.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, AboutActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
         }
         return false;
     }
 
-    private static boolean jumpToWeb(Context mContext, BaseModule module, int viewFrom)
+    private static boolean jumpToWeb(Context mContext, TemplateModule item, int viewFrom)
     {
+        if (item == null || item.url == null || "".equals(item.url))
+        {
+            return false;
+        }
+        Intent intent = new Intent(mContext, WebActivity.class);
+        intent.putExtra("module", item);
+        mContext.startActivity(intent);
+
         return false;
     }
 
-    private static boolean jumpToHtml5(Context mContext, BaseModule module, int viewFrom)
+    private static boolean jumpToHtml5(Context mContext, TemplateModule item, int viewFrom)
     {
         return false;
     }

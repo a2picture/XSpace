@@ -24,7 +24,7 @@ import demo.pplive.com.xspace.R;
 
 public class MainActivity extends BaseActivity
 {
-    private static String TAG = "";
+    private static String TAG = "MainActivity";
 
     private NoScrollViewPage mainContainer;
 

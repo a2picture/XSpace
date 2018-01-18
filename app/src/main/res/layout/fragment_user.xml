@@ -2,10 +2,282 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="个人中心" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/shape"
+            android:src="@drawable/github" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="@string/app_name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="20dip"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/text_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="我的下载"
+                    android:textSize="@dimen/dt_text_size_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_1"
+                    android:gravity="center"
+                    android:text="12"
+                    android:textSize="@dimen/dt_text_size_small" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="#7fffffff" />
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/text_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="本地视频"
+                    android:textSize="@dimen/dt_text_size_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_2"
+                    android:gravity="center"
+                    android:text="24"
+                    android:textSize="@dimen/dt_text_size_small" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="#7fffffff" />
+
+            <RelativeLayout
+                android:id="@+id/email"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/text_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="作者邮箱"
+                    android:textSize="@dimen/dt_text_size_normal" />
+
+                <TextView
+                    android:id="@+id/email_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_3"
+                    android:gravity="center"
+                    android:text="991167006@qq.com"
+                    android:textSize="@dimen/dt_text_size_small" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/history" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="历史记录" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/local"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/local" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="本地视频" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/scource"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/scource" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="查看源码" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/about" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="关于软件" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/updata_software"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/updata" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="检查更新" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+
+    <LinearLayout
+        android:id="@+id/setting"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/setting" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="设置" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
 </LinearLayout>

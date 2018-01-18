@@ -6,23 +6,27 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 
 import demo.pplive.com.xspace.R;
 
-public class CategoryActivity extends BaseActivity implements View.OnClickListener
+public class DetailActivity extends BaseActivity implements View.OnClickListener
 {
     private ImageView back;
 
-    private TextView title;
+    private View emptyView;
+
+    private String url = "http://www.pptv.com";
 
     private PullToRefreshListView listView;
+
+    private ImageView error;
 
     private TemplateContainerImpl impl;
 
@@ -46,19 +50,26 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_detail);
         back = findViewById(R.id.img_back);
-        title = findViewById(R.id.txt_detail);
         listView = findViewById(R.id.pull_to_refresh);
+        emptyView = findViewById(R.id.empty_view);
+        error = findViewById(R.id.error);
+
         initView();
     }
 
     private void initView()
     {
+        error.setOnClickListener(this);
         back.setOnClickListener(this);
         impl = new TemplateContainerImpl(context);
         impl.setListView(listView);
-        ApplyNetGson(handler, "http://www.pptv.com");
+        if (module != null && module.url != null && !"".equals(module.url))
+        {
+            url = module.url;
+        }
+        ApplyNetGson(handler, url);
     }
 
     private void ApplyNetGson(final Handler handler, final String url)
@@ -84,10 +95,26 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         finish();
     }
 
-    private void show(String gson)
+    @Override
+    protected void showEmpty()
     {
-        Gson g = new Gson();
-        pageModule = g.fromJson(gson, PageModule.class);
+        super.showEmpty();
+        listView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void show(String gson)
+    {
+        emptyView.setVisibility(View.GONE);
+        listView.setVisibility(View.VISIBLE);
+        pageModule = ModuleParser.getPageModules(gson);
+        if (pageModule == null)
+        {
+            Toast.makeText(context, "数据配置出错", Toast.LENGTH_SHORT).show();
+            showEmpty();
+            return;
+        }
         impl.startConstruct(pageModule);
     }
 
@@ -98,6 +125,9 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         {
             case R.id.img_back:
                 finish();
+                break;
+            case R.id.error:
+                ApplyNetGson(handler, url);
                 break;
             default:
                 break;

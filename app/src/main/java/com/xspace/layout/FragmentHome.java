@@ -8,9 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
@@ -20,6 +23,12 @@ import demo.pplive.com.xspace.R;
 public class FragmentHome extends Fragment
 {
     private PullToRefreshListView listView;
+
+    private ProgressBar loading;
+
+    private View emptyView;
+
+    private ImageView error;
 
     private TemplateContainerImpl impl;
 
@@ -32,10 +41,14 @@ public class FragmentHome extends Fragment
         @Override
         public void handleMessage(Message msg)
         {
+            loading.setVisibility(View.GONE);
             switch (msg.what)
             {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
                     show(msg.obj.toString());
+                    break;
+                default:
+                    showEmpty();
                     break;
             }
         }
@@ -60,19 +73,45 @@ public class FragmentHome extends Fragment
     {
         impl = new TemplateContainerImpl(getContext());
         listView = rootView.findViewById(R.id.pull_to_refresh);
+        emptyView = rootView.findViewById(R.id.empty_view);
+        loading = rootView.findViewById(R.id.loading);
+        emptyView.setVisibility(View.GONE);
+        error = rootView.findViewById(R.id.error);
+        error.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                ApplyNetGson(handler);
+            }
+        });
         impl.setListView(listView);
         ApplyNetGson(handler);
     }
 
+    private void showEmpty()
+    {
+        emptyView.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.GONE);
+    }
+
     private void show(String gson)
     {
-        Gson g = new Gson();
-        pageModule = g.fromJson(gson, PageModule.class);
+        emptyView.setVisibility(View.GONE);
+        listView.setVisibility(View.VISIBLE);
+        pageModule = ModuleParser.getPageModules(gson);
+        if (pageModule == null)
+        {
+            Toast.makeText(getContext(), "数据配置错误", Toast.LENGTH_SHORT).show();
+            showEmpty();
+            return;
+        }
         impl.startConstruct(pageModule);
     }
 
     private void ApplyNetGson(final Handler handler)
     {
+        loading.setVisibility(View.VISIBLE);
         new Thread(new Runnable()
         {
             @Override

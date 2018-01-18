@@ -2,6 +2,7 @@ package com.xspace.ui.template;
 
 import android.content.Context;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.xspace.module.BaseModule;
@@ -25,6 +26,15 @@ public class TemplateEndBanner extends BaseView
         this.setGravity(Gravity.CENTER);
         this.setLayoutParams(new LayoutParams(-1, -2));
         this.setPadding(0, 0, 0, 10);
+
+        this.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                onItemClick(module);
+            }
+        });
     }
 
     @Override

@@ -33,15 +33,7 @@ public class TemplateLineText extends BaseView
         mRootView = new LinearLayout(mContext);
         mRootView.setOrientation(HORIZONTAL);
         mRootView.setLayoutParams(new LayoutParams(-1, -2));
-
-        this.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                onItemClick(module);
-            }
-        });
+        this.setOnClickListener(null);
     }
 
     @Override
@@ -82,6 +74,14 @@ public class TemplateLineText extends BaseView
         if (!(((TemplateModule) module).link == null || "".equals(((TemplateModule) module).link)))
         {
             subtitle.setTextColor(Color.GREEN);
+            subtitle.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    onItemClick(module);
+                }
+            });
         }
 
         mRootView.addView(title);

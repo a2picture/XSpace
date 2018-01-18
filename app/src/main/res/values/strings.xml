@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">XSpace</string>
+    <string name="app_name">影视π</string>
     <string name="nav_home">主页</string>
     <string name="nav_hot">热门</string>
     <string name="nav_user">个人中心</string>
     <string name="nav_find">发现</string>
     <string name="tool_detail">资源详情</string>
+
 </resources>

@@ -29,6 +29,8 @@ public class TemplateModule extends BaseModule
 
     public String tag;
 
+    public String url;
+
     public ArrayList<TemplateModule> templateItems;
 
 }
