@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import com.xspace.layout.FragmentFind;
 import com.xspace.layout.FragmentHome;
-import com.xspace.layout.FragmentHot;
+import com.xspace.layout.FragmentLive;
 import com.xspace.layout.FragmentUser;
 import com.xspace.ui.view.NoScrollViewPage;
 
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity
 
     private FragmentHome home;
 
-    private FragmentHot hot;
+    private FragmentLive hot;
 
     private FragmentFind find;
 
@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity
         navTab = findViewById(R.id.nav_tab);
         fragments = new ArrayList<>();
         home = new FragmentHome();
-        hot = new FragmentHot();
+        hot = new FragmentLive();
         find = new FragmentFind();
         user = new FragmentUser();
         fragments.add(home);

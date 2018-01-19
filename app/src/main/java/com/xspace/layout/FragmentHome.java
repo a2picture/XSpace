@@ -9,14 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
+import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
@@ -42,6 +45,7 @@ public class FragmentHome extends Fragment
         public void handleMessage(Message msg)
         {
             loading.setVisibility(View.GONE);
+            listView.onRefreshComplete();
             switch (msg.what)
             {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
@@ -64,8 +68,16 @@ public class FragmentHome extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        initView();
+        if (rootView == null)
+        {
+            rootView = inflater.inflate(R.layout.fragment_home, container, false);
+            initView();
+        }
+        ViewGroup parent = (ViewGroup) rootView.getParent();
+        if (parent != null)
+        {
+            parent.removeView(rootView);
+        }
         return rootView;
     }
 
@@ -73,6 +85,22 @@ public class FragmentHome extends Fragment
     {
         impl = new TemplateContainerImpl(getContext());
         listView = rootView.findViewById(R.id.pull_to_refresh);
+        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>()
+        {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView)
+            {
+                refreshView.getLoadingLayoutProxy().setRefreshingLabel("嘿咻嘿咻");
+                refreshView.getLoadingLayoutProxy().setPullLabel("客观、轻点儿");
+                refreshView.getLoadingLayoutProxy().setReleaseLabel("讨厌、还在拉");
+                ApplyNetGson(handler);
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView)
+            {
+            }
+        });
         emptyView = rootView.findViewById(R.id.empty_view);
         loading = rootView.findViewById(R.id.loading);
         emptyView.setVisibility(View.GONE);
@@ -117,7 +145,7 @@ public class FragmentHome extends Fragment
             @Override
             public void run()
             {
-                NetUtils.getAsynPageModulekHttp(handler, "http://www.gitkub.com");
+                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.home);
             }
         }).start();
     }

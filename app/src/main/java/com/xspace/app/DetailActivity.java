@@ -13,6 +13,7 @@ import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
+import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
@@ -22,7 +23,7 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
 
     private View emptyView;
 
-    private String url = "http://www.pptv.com";
+    private String url;
 
     private PullToRefreshListView listView;
 
@@ -68,6 +69,10 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         if (module != null && module.url != null && !"".equals(module.url))
         {
             url = module.url;
+        }
+        else
+        {
+            url = NetAddressManager.root_website + NetAddressManager.detail;
         }
         ApplyNetGson(handler, url);
     }

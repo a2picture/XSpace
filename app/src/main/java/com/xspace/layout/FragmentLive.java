@@ -23,7 +23,7 @@ import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
-public class FragmentFind extends Fragment
+public class FragmentLive extends Fragment
 {
     private PullToRefreshListView listView;
 
@@ -44,8 +44,8 @@ public class FragmentFind extends Fragment
         @Override
         public void handleMessage(Message msg)
         {
-            listView.onRefreshComplete();
             loading.setVisibility(View.GONE);
+            listView.onRefreshComplete();
             switch (msg.what)
             {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
@@ -70,7 +70,7 @@ public class FragmentFind extends Fragment
     {
         if (rootView == null)
         {
-            rootView = inflater.inflate(R.layout.fragment_find, container, false);
+            rootView = inflater.inflate(R.layout.fragment_live, container, false);
             initView();
         }
         ViewGroup parent = (ViewGroup) rootView.getParent();
@@ -145,7 +145,7 @@ public class FragmentFind extends Fragment
             @Override
             public void run()
             {
-                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.find);
+                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.live);
             }
         }).start();
     }

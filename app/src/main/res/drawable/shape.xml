@@ -16,8 +16,7 @@
     <!-- 描边 -->
     <stroke
         android:width="1dp"
-        android:color="#ffffff"
-        android:dashGap="0dp"
+        android:color="#ffffff"       android:dashGap="0dp"
         android:dashWidth="0dp" />
     <!-- padding：Button里面的文字与Button边界的间隔 -->
     <padding

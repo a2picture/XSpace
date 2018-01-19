@@ -6,7 +6,9 @@ import android.widget.Toast;
 
 import com.xspace.app.AboutActivity;
 import com.xspace.app.DetailActivity;
+import com.xspace.app.FeedBackActivity;
 import com.xspace.app.LocalActivity;
+import com.xspace.app.SettingActivity;
 import com.xspace.app.UserActivity;
 import com.xspace.app.WebActivity;
 import com.xspace.module.BaseModule;
@@ -79,14 +81,14 @@ public class CategoryUtil
 
     private static boolean jumpToNative(Context mContext, TemplateModule item, int viewFrom)
     {
-        if (AddressManager.Native_Usercenter.equals(item.link))
+        if (AddressManager.Native_Player.equals(item.link))
         {
             Intent intent = new Intent(mContext, UserActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
         }
-        else if (AddressManager.Native_Category.equals(item.link))
+        else if (AddressManager.Native_Detail.equals(item.link))
         {
             Intent intent = new Intent(mContext, DetailActivity.class);
             intent.putExtra("module", item);
@@ -98,18 +100,35 @@ public class CategoryUtil
             Intent intent = new Intent(mContext, LocalActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
+            return true;
         }
         else if (AddressManager.Native_Local.equals(item.link))
         {
             Intent intent = new Intent(mContext, LocalActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
+            return true;
         }
         else if (AddressManager.Native_About.equals(item.link))
         {
             Intent intent = new Intent(mContext, AboutActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
+            return true;
+        }
+        else if (AddressManager.Native_Setting.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, SettingActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+            return true;
+        }
+        else if (AddressManager.Native_FeedBack.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, FeedBackActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+            return true;
         }
         return false;
     }
@@ -123,8 +142,7 @@ public class CategoryUtil
         Intent intent = new Intent(mContext, WebActivity.class);
         intent.putExtra("module", item);
         mContext.startActivity(intent);
-
-        return false;
+        return true;
     }
 
     private static boolean jumpToHtml5(Context mContext, TemplateModule item, int viewFrom)

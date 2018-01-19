@@ -1,11 +1,18 @@
 package com.xspace.ui.template;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
@@ -14,6 +21,8 @@ import com.xspace.utils.DisplayUtil;
 public class TemplateLineText extends BaseView
 {
     public static final String TAG = "template_line_text";
+
+    private ClipboardManager cm;
 
     private int width;
 
@@ -28,6 +37,7 @@ public class TemplateLineText extends BaseView
     private void initView()
     {
         this.setOrientation(VERTICAL);
+        cm = (ClipboardManager) getmContext().getSystemService(Context.CLIPBOARD_SERVICE);
         setPadding(0, 10, 0, 10);
         width = DisplayUtil.screenWidthPx(mContext);
         mRootView = new LinearLayout(mContext);
@@ -79,7 +89,7 @@ public class TemplateLineText extends BaseView
                 @Override
                 public void onClick(View view)
                 {
-                    onItemClick(module);
+                    downLoadTip();
                 }
             });
         }
@@ -89,6 +99,42 @@ public class TemplateLineText extends BaseView
         mRootView.addView(line, 1);
 
         addTemplateView();
+    }
+
+    private void downLoadTip()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getmContext());
+        builder.setTitle("下载");
+        builder.setMessage("正在下载：" + ((TemplateModule) module).subtitle);
+        builder.setPositiveButton("下载到本地", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                ClipData myClip;
+                myClip = ClipData.newPlainText("e-mail", ((TemplateModule) module).subtitle);
+                cm.setPrimaryClip(myClip);
+                Toast.makeText(getContext(), "已添加" + ((TemplateModule) module).subtitle + "到下载列表",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(((TemplateModule) module).subtitle));
+                getmContext().startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("复制链接", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                Toast.makeText(getContext(), "已复制" + ((TemplateModule) module).subtitle + "到粘贴板",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
     }
 
     @Override

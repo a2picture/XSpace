@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_toolbar" />
+
+    <LinearLayout
+        android:id="@+id/cache"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/history" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="清除缓存 (10.3M)" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/allow4G"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/local" />
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="允许流量下载" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:layout_margin="10dip"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/scource" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dip"
+            android:gravity="center_vertical"
+            android:text="用户反馈" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#7fffffff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dip"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/green" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -31,6 +31,8 @@ public class TemplateModule extends BaseModule
 
     public String url;
 
+    public float scale;
+
     public ArrayList<TemplateModule> templateItems;
 
 }

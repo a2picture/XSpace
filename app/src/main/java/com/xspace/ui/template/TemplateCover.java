@@ -20,6 +20,8 @@ public class TemplateCover extends BaseView
 
     private TextView subtitle;
 
+    private float scale = 0.333333f;
+
     public TemplateCover(Context context)
     {
         super(context);
@@ -70,8 +72,16 @@ public class TemplateCover extends BaseView
                 onItemClick(module);
             }
         });
-        simpleDraweeView.setLayoutParams(new LayoutParams(width, (int) (width * 0.33333)));
+        if (((TemplateModule) module).scale > 0)
+        {
+            scale = ((TemplateModule) module).scale;
+        }
+        simpleDraweeView.setLayoutParams(new LayoutParams(width, (int) (width * scale)));
         simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
+        if ("".equals(((TemplateModule) module).subtitle))
+        {
+            subtitle.setVisibility(GONE);
+        }
         subtitle.setText(((TemplateModule) module).subtitle);
         subtitle.setPadding(20, 20, 0, 0);
         simpleDraweeView.setImageURI(Uri.parse(((TemplateModule) module).img_url));

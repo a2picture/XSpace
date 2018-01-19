@@ -49,7 +49,7 @@ public class TemplateContainerImpl
 
     public void startConstruct(PageModule pageModule)
     {
-        if (pageModule == null || pageModule.templateModules.size() == 0)
+        if (pageModule == null || pageModule.templateModules == null || pageModule.templateModules.size() == 0)
         {
             return;
         }

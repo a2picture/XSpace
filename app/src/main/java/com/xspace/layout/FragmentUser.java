@@ -30,7 +30,7 @@ public class FragmentUser extends Fragment implements View.OnClickListener
 
     private ClipboardManager cm;
 
-    private View mRootView;
+    private View rootView;
 
     private View source;
 
@@ -48,22 +48,30 @@ public class FragmentUser extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
-        mRootView = inflater.inflate(R.layout.fragment_user, container, false);
-        initView();
-        return mRootView;
+        if (rootView == null)
+        {
+            rootView = inflater.inflate(R.layout.fragment_user, container, false);
+            initView();
+        }
+        ViewGroup parent = (ViewGroup) rootView.getParent();
+        if (parent != null)
+        {
+            parent.removeView(rootView);
+        }
+        return rootView;
     }
 
     private void initView()
     {
         cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-        email = mRootView.findViewById(R.id.email);
-        emailTxt = mRootView.findViewById(R.id.email_txt);
-        source = mRootView.findViewById(R.id.scource);
-        history = mRootView.findViewById(R.id.history);
-        local = mRootView.findViewById(R.id.local);
-        about = mRootView.findViewById(R.id.about);
-        setting = mRootView.findViewById(R.id.setting);
-        updata = mRootView.findViewById(R.id.updata_software);
+        email = rootView.findViewById(R.id.email);
+        emailTxt = rootView.findViewById(R.id.email_txt);
+        source = rootView.findViewById(R.id.scource);
+        history = rootView.findViewById(R.id.history);
+        local = rootView.findViewById(R.id.local);
+        about = rootView.findViewById(R.id.about);
+        setting = rootView.findViewById(R.id.setting);
+        updata = rootView.findViewById(R.id.updata_software);
 
         email.setOnLongClickListener(new View.OnLongClickListener()
         {
@@ -140,10 +148,15 @@ public class FragmentUser extends Fragment implements View.OnClickListener
 
     private void jumpToUpdata()
     {
+        Toast.makeText(getContext(), "已经是最新版本", Toast.LENGTH_SHORT).show();
     }
 
     private void jumpToSetting()
     {
+        TemplateModule item = new TemplateModule();
+        item.type = "native";
+        item.link = AddressManager.Native_Setting;
+        CategoryUtil.jumpByTargetLink(getContext(), item, viewFrom);
     }
 
     private void jumpToAbout()
