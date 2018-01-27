@@ -18,18 +18,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+
         <activity android:name="com.xspace.app.FeedBackActivity" />
         <activity android:name="com.xspace.app.SettingActivity" />
         <activity android:name="com.xspace.app.AboutActivity" />
         <activity android:name="com.xspace.app.LocalActivity" />
         <activity android:name="com.xspace.app.UserActivity" />
         <activity android:name="com.xspace.app.WebActivity" />
+
         <activity
             android:name="com.xspace.app.SearchResoultActivity"
             android:launchMode="singleTask" />
         <activity
             android:name="com.xspace.app.CategoryActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name="com.xspace.app.PlayerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity android:name="com.xspace.app.DetailActivity" />
         <activity android:name="com.xspace.app.MainActivity">
             <intent-filter>

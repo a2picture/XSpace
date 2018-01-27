@@ -1,10 +1,15 @@
 package com.xspace.app;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -26,6 +31,11 @@ public class MainActivity extends BaseActivity
 {
     private static String TAG = "MainActivity";
 
+    private static String[] PERMISSIONS_STORAGE = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+
     private NoScrollViewPage mainContainer;
 
     private BottomNavigationView navTab;
@@ -42,6 +52,7 @@ public class MainActivity extends BaseActivity
 
     private List<Fragment> fragments;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -97,7 +108,6 @@ public class MainActivity extends BaseActivity
             {
                 int[] resId = {R.id.nav_home, R.id.nav_hot, R.id.nav_find, R.id.nav_user};
                 navTab.setSelectedItemId(resId[position]);
-
             }
 
             @Override
@@ -129,6 +139,16 @@ public class MainActivity extends BaseActivity
                 return true;
             }
         });
+    }
+
+    // 权限申请
+    public void checkAndApplyPermission()
+    {
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
+        }
     }
 
     class FragmentAdapter extends FragmentPagerAdapter

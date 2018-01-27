@@ -1,7 +1,9 @@
 package com.xspace.app;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,7 +17,6 @@ import demo.pplive.com.xspace.R;
 
 public class AboutActivity extends BaseActivity implements View.OnClickListener
 {
-
     private TextView website;
 
     private TextView title;
@@ -26,6 +27,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener
 
     private int viewFrom = -1;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -46,6 +48,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener
         }
         version.setText("当前版本：v " + VersionUtils.getAppVersionName(context));
     }
+
 
     @Override
     protected void show(String gson)

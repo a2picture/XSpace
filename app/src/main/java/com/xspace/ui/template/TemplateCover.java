@@ -18,7 +18,7 @@ public class TemplateCover extends BaseView
 
     private SimpleDraweeView simpleDraweeView;
 
-    private TextView subtitle;
+    private TextView title;
 
     private float scale = 0.333333f;
 
@@ -59,9 +59,9 @@ public class TemplateCover extends BaseView
         {
             simpleDraweeView = new SimpleDraweeView(mContext);
         }
-        if (subtitle == null)
+        if (title == null)
         {
-            subtitle = new TextView(mContext);
+            title = new TextView(mContext);
         }
         int width = DisplayUtil.screenWidthPx(mContext);
         this.setOnClickListener(new OnClickListener()
@@ -80,10 +80,10 @@ public class TemplateCover extends BaseView
         simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
         if ("".equals(((TemplateModule) module).subtitle))
         {
-            subtitle.setVisibility(GONE);
+            title.setVisibility(GONE);
         }
-        subtitle.setText(((TemplateModule) module).subtitle);
-        subtitle.setPadding(20, 20, 0, 0);
+        title.setText(((TemplateModule) module).title == null ? "" : ((TemplateModule) module).title);
+        title.setPadding(20, 10, 0, 10);
         simpleDraweeView.setImageURI(Uri.parse(((TemplateModule) module).img_url));
         addTemplateView();
     }
@@ -92,7 +92,7 @@ public class TemplateCover extends BaseView
     public void addTemplateView()
     {
         addView(simpleDraweeView);
-        addView(subtitle);
+        addView(title);
         invalidate();
     }
 

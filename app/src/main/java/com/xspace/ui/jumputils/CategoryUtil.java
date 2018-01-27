@@ -9,6 +9,7 @@ import com.xspace.app.CategoryActivity;
 import com.xspace.app.DetailActivity;
 import com.xspace.app.FeedBackActivity;
 import com.xspace.app.LocalActivity;
+import com.xspace.app.PlayerActivity;
 import com.xspace.app.SearchResoultActivity;
 import com.xspace.app.SettingActivity;
 import com.xspace.app.UserActivity;
@@ -83,7 +84,7 @@ public class CategoryUtil
 
     private static boolean jumpToNative(Context mContext, TemplateModule item, int viewFrom)
     {
-        if (AddressManager.Native_Player.equals(item.link))
+        if (AddressManager.Native_User.equals(item.link))
         {
             Intent intent = new Intent(mContext, UserActivity.class);
             intent.putExtra("module", item);
@@ -142,6 +143,13 @@ public class CategoryUtil
         else if (AddressManager.Native_Category.equals(item.link))
         {
             Intent intent = new Intent(mContext, CategoryActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+            return true;
+        }
+        else if (AddressManager.Native_Player.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, PlayerActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;

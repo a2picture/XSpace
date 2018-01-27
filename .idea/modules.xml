@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/XSpace.iml" filepath="$PROJECT_DIR$/XSpace.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Github\XSpace\gsyVideoPlayer1\gsyVideoPlayer1.iml" filepath="D:\Github\XSpace\gsyVideoPlayer1\gsyVideoPlayer1.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>

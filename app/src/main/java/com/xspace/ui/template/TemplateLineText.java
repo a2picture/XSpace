@@ -1,6 +1,7 @@
 package com.xspace.ui.template;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,7 +18,10 @@ import android.widget.Toast;
 
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
+import com.xspace.net.NetUtils;
+import com.xspace.net.VersionUtils;
 import com.xspace.utils.DisplayUtil;
+import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
@@ -70,7 +75,7 @@ public class TemplateLineText extends BaseView
         title.setSingleLine(true);
         title.setLayoutParams(new LayoutParams(width / 5, -1));
         title.setGravity(Gravity.CENTER_VERTICAL);
-        title.setPadding(10, 0, 10, 0);
+        title.setPadding(5, 0, 10, 5);
         title.setText(((TemplateModule) module).title);
 
         View line = new View(mContext);
@@ -99,7 +104,6 @@ public class TemplateLineText extends BaseView
         mRootView.addView(title);
         mRootView.addView(subtitle);
         mRootView.addView(line, 1);
-
         addTemplateView();
     }
 
@@ -116,14 +120,21 @@ public class TemplateLineText extends BaseView
                 ClipData myClip;
                 myClip = ClipData.newPlainText("e-mail", ((TemplateModule) module).subtitle);
                 cm.setPrimaryClip(myClip);
-                Toast.makeText(getContext(), "已添加" + ((TemplateModule) module).subtitle + "到下载列表",
-                        Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(((TemplateModule) module).subtitle));
-                getmContext().startActivity(intent);
+                try
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(((TemplateModule) module).subtitle));
+                    intent.addCategory("android.intent.category.DEFAULT");
+                    mContext.startActivity(intent);
+                }
+                catch (ActivityNotFoundException e)
+                {
+                    //下载失败就反馈到数据库中
+                    Toast.makeText(mContext, "您的手机尚未安装迅雷", Toast.LENGTH_SHORT).show();
+                    String url = NetAddressManager.root_website + NetAddressManager.downloadfail + "?vid="
+                            + ((TemplateModule) module).subtitle + "&appVer=" + VersionUtils.getAppVersionName(mContext);
+                    ApplyNetGson(null, url);
+                    e.printStackTrace();
+                }
             }
         });
         builder.setNegativeButton("添加到收藏", new DialogInterface.OnClickListener()
@@ -133,9 +144,26 @@ public class TemplateLineText extends BaseView
             {
                 Toast.makeText(getContext(), "已复制" + ((TemplateModule) module).subtitle + "到粘贴板",
                         Toast.LENGTH_SHORT).show();
+
             }
         });
         builder.show();
+    }
+
+    private void ApplyNetGson(final Handler handler, final String url)
+    {
+        if (url == null || "".equals(url))
+        {
+            return;
+        }
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                NetUtils.getAsynPageModulekHttp(handler, url);
+            }
+        }).start();
     }
 
     @Override

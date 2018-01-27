@@ -4,7 +4,7 @@ public class AddressManager
 {
     public static String Native_Home = "home";
 
-    public static String Native_Player = "player";
+    public static String Native_User = "user";
 
     public static String Native_Detail = "detail";
 
@@ -21,4 +21,6 @@ public class AddressManager
     public static String Native_Search = "search";
 
     public static String Native_Category = "category";
+
+    public static String Native_Player = "player";
 }

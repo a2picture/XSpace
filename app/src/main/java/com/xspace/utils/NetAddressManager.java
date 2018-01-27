@@ -22,6 +22,10 @@ public class NetAddressManager
 
     public static final String category = "category";
 
+    public static final String player = "player";
+
+    public static final String downloadfail = "downloadfail";
+
     public static final String myGithub = "https://github.com/jixiongxu/XSpace";
 
 }
