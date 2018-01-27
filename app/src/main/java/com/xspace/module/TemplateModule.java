@@ -15,6 +15,8 @@ public class TemplateModule extends BaseModule
 {
     public String templateId;
 
+    public long vid;
+
     public String img_url;
 
     public String title;

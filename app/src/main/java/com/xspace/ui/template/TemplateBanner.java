@@ -62,6 +62,7 @@ public class TemplateBanner extends BaseView
         {
             return;
         }
+
         title.setText(((TemplateModule) module).title);
         more.setText(((TemplateModule) module).subtitle);
         icon.setImageURI(Uri.parse(((TemplateModule) module).img_url));

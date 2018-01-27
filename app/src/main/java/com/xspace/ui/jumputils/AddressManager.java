@@ -17,4 +17,8 @@ public class AddressManager
     public static String Native_Setting = "setting";
 
     public static String Native_FeedBack = "feedback";
+
+    public static String Native_Search = "search";
+
+    public static String Native_Category = "category";
 }

@@ -17,6 +17,7 @@
         android:layout_marginRight="10dip">
 
         <TextView
+            android:singleLine="true"
             android:id="@+id/chapter_title"
             android:layout_width="match_parent"
             android:layout_height="20dip"

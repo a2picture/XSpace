@@ -36,6 +36,8 @@ public class TemplateGrid3 extends BaseView
 {
     public static String TemplateID = "template_grid_3";
 
+    private int max_count = 12;
+
     private double W21_H9 = 0.4285;
 
     private FrameLayout mRootView;
@@ -45,6 +47,8 @@ public class TemplateGrid3 extends BaseView
     private ViewPager viewPager;
 
     private LinearLayout dotContainer;
+
+    private TemplateModule newModule;
 
     private int currentViewPagePositon = 0;
 
@@ -70,21 +74,32 @@ public class TemplateGrid3 extends BaseView
     @Override
     public void setData(BaseModule module)
     {
-        if (module == null)
+        if (module == null || !(module instanceof TemplateModule))
         {
             return;
         }
         this.module = module;
-        fillData(module);
+
+        if (((TemplateModule) module).templateItems.size() > max_count)
+        {
+            newModule = (TemplateModule) module;
+
+            while (newModule.templateItems.size() > max_count)
+            {
+                newModule.templateItems.remove(newModule.templateItems.size());
+            }
+            fillData(newModule);
+        }
+        else
+        {
+            fillData(module);
+        }
     }
 
     @Override
     public void fillData(BaseModule module)
     {
-        if (module == null || !(module instanceof TemplateModule))
-        {
-            return;
-        }
+
         viewPager = new ViewPager(mContext);
         viewPager.setLayoutParams(new LayoutParams(-1, (int) (width * W21_H9)));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
@@ -98,9 +113,7 @@ public class TemplateGrid3 extends BaseView
             @Override
             public void onPageSelected(int position)
             {
-
                 currentViewPagePositon = position;
-
             }
 
             @Override
@@ -235,6 +248,7 @@ public class TemplateGrid3 extends BaseView
             itemContainer.addView(itemImage);
             itemContainer.addView(title);
 
+            title.setTextColor(getResources().getColor(R.color.withe_alpha_1));
             title.setText(items.get(position).title);
             itemImage.setImageURI(Uri.parse(items.get(position).img_url));
 

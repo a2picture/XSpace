@@ -18,12 +18,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
+import com.xspace.net.VersionUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
-public class FragmentFind extends Fragment
+public class FragmentFilm extends Fragment
 {
     private PullToRefreshListView listView;
 
@@ -145,7 +146,8 @@ public class FragmentFind extends Fragment
             @Override
             public void run()
             {
-                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.find);
+                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.film + "?appVer="
+                        + VersionUtils.getAppVersionName(getContext()));
             }
         }).start();
     }

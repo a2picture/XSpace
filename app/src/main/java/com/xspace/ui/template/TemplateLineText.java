@@ -18,6 +18,8 @@ import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
 import com.xspace.utils.DisplayUtil;
 
+import demo.pplive.com.xspace.R;
+
 public class TemplateLineText extends BaseView
 {
     public static final String TAG = "template_line_text";
@@ -83,7 +85,7 @@ public class TemplateLineText extends BaseView
 
         if (!(((TemplateModule) module).link == null || "".equals(((TemplateModule) module).link)))
         {
-            subtitle.setTextColor(Color.GREEN);
+            subtitle.setTextColor(getResources().getColor(R.color.colorAccent));
             subtitle.setOnClickListener(new OnClickListener()
             {
                 @Override
@@ -122,10 +124,9 @@ public class TemplateLineText extends BaseView
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse(((TemplateModule) module).subtitle));
                 getmContext().startActivity(intent);
-
             }
         });
-        builder.setNegativeButton("复制链接", new DialogInterface.OnClickListener()
+        builder.setNegativeButton("添加到收藏", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)

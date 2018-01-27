@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.xspace.module.TemplateModule;
 import com.xspace.ui.jumputils.AddressManager;
 import com.xspace.ui.jumputils.CategoryUtil;
+import com.xspace.utils.NetAddressManager;
 
 import demo.pplive.com.xspace.R;
 
@@ -187,7 +188,7 @@ public class FragmentUser extends Fragment implements View.OnClickListener
     {
         TemplateModule item = new TemplateModule();
         item.type = "web";
-        item.url = "https://github.com/jixiongxu/XSpace";
+        item.url = NetAddressManager.myGithub;
         CategoryUtil.jumpByTargetLink(getContext(), item, viewFrom);
     }
 }

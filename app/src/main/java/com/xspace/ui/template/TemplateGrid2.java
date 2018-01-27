@@ -23,9 +23,14 @@ import com.xspace.utils.DisplayUtil;
  */
 
 public class TemplateGrid2 extends BaseView {
+
     public static String TemplateID = "template_grid_2";
 
     private int maxCow = 5;
+
+    private TemplateModule newModule;
+
+    private int max_count = 10;
 
     private int width;
 
@@ -49,11 +54,25 @@ public class TemplateGrid2 extends BaseView {
 
     @Override
     public void setData(BaseModule module) {
-        if (module == null) {
+        if (module == null || !(module instanceof TemplateModule))
+        {
             return;
         }
         this.module = module;
-        fillData(module);
+        if (((TemplateModule) module).templateItems.size() > max_count)
+        {
+            newModule = (TemplateModule) module;
+
+            while (newModule.templateItems.size() > max_count)
+            {
+                newModule.templateItems.remove(newModule.templateItems.size()-1);
+            }
+            fillData(newModule);
+        }
+        else
+        {
+            fillData(module);
+        }
     }
 
     @Override

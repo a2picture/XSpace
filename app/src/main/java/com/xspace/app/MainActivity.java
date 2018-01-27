@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
-import com.xspace.layout.FragmentFind;
+import com.xspace.layout.FragmentFilm;
 import com.xspace.layout.FragmentHome;
 import com.xspace.layout.FragmentLive;
 import com.xspace.layout.FragmentUser;
@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity
 
     private FragmentLive hot;
 
-    private FragmentFind find;
+    private FragmentFilm find;
 
     private FragmentUser user;
 
@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("提示");
         builder.setMessage("客官再玩一会嘛，咩^_^");
-        builder.setPositiveButton("Fuck Off", new DialogInterface.OnClickListener()
+        builder.setPositiveButton("残忍拒绝", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity
                 finish();
             }
         });
-        builder.setNegativeButton("再看看", null);
+        builder.setNegativeButton("再快活@_@", null);
         builder.show();
     }
 
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity
         fragments = new ArrayList<>();
         home = new FragmentHome();
         hot = new FragmentLive();
-        find = new FragmentFind();
+        find = new FragmentFilm();
         user = new FragmentUser();
         fragments.add(home);
         fragments.add(hot);

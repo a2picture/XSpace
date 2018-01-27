@@ -1,16 +1,13 @@
 package com.xspace.app;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xspace.module.TemplateModule;
+import com.xspace.net.VersionUtils;
 import com.xspace.ui.jumputils.AddressManager;
 import com.xspace.ui.jumputils.CategoryUtil;
 
@@ -47,27 +44,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener
                 title.setText("软件信息");
             }
         }
-        version.setText("当前版本：v " + getAppVersionName(context));
-    }
-
-    public static String getAppVersionName(Context context)
-    {
-        String versionName = "";
-        try
-        {
-            PackageManager pm = context.getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
-            versionName = pi.versionName;
-            if (versionName == null || versionName.length() <= 0)
-            {
-                return "";
-            }
-        }
-        catch (Exception e)
-        {
-            Log.e("VersionInfo", "Exception", e);
-        }
-        return versionName;
+        version.setText("当前版本：v " + VersionUtils.getAppVersionName(context));
     }
 
     @Override

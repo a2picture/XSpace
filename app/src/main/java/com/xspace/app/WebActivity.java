@@ -1,10 +1,14 @@
 package com.xspace.app;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -25,6 +29,8 @@ public class WebActivity extends BaseActivity
 
     private ProgressBar loading;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -60,7 +66,12 @@ public class WebActivity extends BaseActivity
         }
         title.setText(module.url);
         title.setSingleLine(true);
-        webView.loadUrl(module.url);
+        webView.getSettings().setJavaScriptEnabled(true);// 启用js
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT)
+        {
+            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        webView.getSettings().setBlockNetworkImage(false);// 解决图片不显示
         webView.setWebViewClient(new WebViewClient()
         {
             @Override
@@ -86,6 +97,8 @@ public class WebActivity extends BaseActivity
                 }
             }
         });
+        webView.loadUrl(module.url);
+
     }
 
     @Override

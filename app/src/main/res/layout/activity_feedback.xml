@@ -1,111 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/view_toolbar" />
-
-    <TextView
+    <ProgressBar
+        android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dip"
-        android:text="请您详细描述该问题"
-        android:textSize="@dimen/dt_text_size_normal" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="130dip"
-        android:layout_margin="10dip"
-        android:background="@drawable/shape_normol"
-        android:gravity="center"
-        android:hint="快点来和我吐槽吧、嘤嘤嘤..."
-        android:textSize="@dimen/dt_text_size_small" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dip"
-        android:layout_margin="20dip"
-        android:background="@drawable/shape_normol"
-        android:gravity="center"
-        android:hint="大侠请留名（Phone/E-mail/QQ/WeChat）"
-        android:singleLine="true"
-        android:textSize="@dimen/dt_text_size_small" />
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dip"
-        android:layout_gravity="end"
-        android:layout_margin="20dip"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="end|center_vertical"
-            android:orientation="vertical">
+        <include layout="@layout/view_toolbar" />
 
-            <ImageView
-                android:layout_width="30dip"
-                android:layout_height="30dip"
-                android:src="@drawable/email" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
-                android:text="联系我"
-                android:textSize="@dimen/dt_text_size_normal" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dip"
-            android:layout_height="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="10dip"
-            android:background="@color/green" />
+            android:text="请您详细描述该问题"
+            android:textSize="@dimen/dt_text_size_normal" />
+
+        <EditText
+            android:id="@+id/editRecoment"
+            android:layout_width="match_parent"
+            android:layout_height="130dip"
+            android:layout_margin="10dip"
+            android:background="@drawable/shape_normol"
+            android:gravity="center"
+            android:hint="快点来和我吐槽吧、嘤嘤嘤..."
+            android:textSize="@dimen/dt_text_size_small" />
+
+        <EditText
+            android:id="@+id/editConnect"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_margin="20dip"
+            android:background="@drawable/shape_normol"
+            android:gravity="center"
+            android:hint="大侠请留名（Phone/E-mail/QQ/WeChat）"
+            android:singleLine="true"
+            android:textSize="@dimen/dt_text_size_small" />
 
         <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="80dip"
+            android:layout_gravity="end"
+            android:layout_margin="20dip"
+            android:orientation="horizontal">
 
-            android:layout_weight="5"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="Github:https://github.com/jixiongxu/" />
+                android:gravity="end|center_vertical"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="QQ群:662544224" />
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:src="@drawable/email" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="CSDN:http://blog.csdn.net/jixiongxu/" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:text="联系我"
+                    android:textSize="@dimen/dt_text_size_normal" />
+            </LinearLayout>
 
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:layout_margin="10dip"
+                android:background="@color/green" />
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+
+                android:layout_weight="5"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="Github:https://github.com/jixiongxu/" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="QQ群:662544224" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="CSDN:http://blog.csdn.net/jixiongxu/" />
+
+            </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dip"
+            android:background="@drawable/shape_submit"
+            android:text="提交"
+            android:textColor="@color/withe_alpha_1" />
+
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dip"
-        android:background="@drawable/shape_submit"
-        android:text="提交" />
-
-
-</LinearLayout>
+</FrameLayout>

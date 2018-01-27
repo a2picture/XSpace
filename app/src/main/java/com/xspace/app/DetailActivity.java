@@ -1,9 +1,11 @@
 package com.xspace.app;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
+import com.xspace.net.VersionUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 import com.xspace.utils.NetAddressManager;
 
@@ -47,6 +50,7 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         }
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -56,7 +60,6 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         listView = findViewById(R.id.pull_to_refresh);
         emptyView = findViewById(R.id.empty_view);
         error = findViewById(R.id.error);
-
         initView();
     }
 
@@ -66,14 +69,10 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         back.setOnClickListener(this);
         impl = new TemplateContainerImpl(context);
         impl.setListView(listView);
-        if (module != null && module.url != null && !"".equals(module.url))
-        {
-            url = module.url;
-        }
-        else
-        {
-            url = NetAddressManager.root_website + NetAddressManager.detail;
-        }
+
+        url = NetAddressManager.root_website + NetAddressManager.detail + "?vid=" + module.vid + "&appVer="
+                + VersionUtils.getAppVersionName(context);
+
         ApplyNetGson(handler, url);
     }
 

@@ -15,7 +15,7 @@
             android:layout_height="60dip"
             android:layout_marginTop="20dip"
             android:background="@drawable/shape"
-            android:src="@drawable/github" />
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="我的下载"
+                    android:text="我的收藏"
                     android:textSize="@dimen/dt_text_size_normal" />
 
                 <TextView
@@ -57,7 +57,7 @@
             <View
                 android:layout_width="1dip"
                 android:layout_height="match_parent"
-                android:background="#7fffffff" />
+                android:background="#7f000000" />
 
             <RelativeLayout
                 android:layout_width="0dip"
@@ -86,7 +86,7 @@
             <View
                 android:layout_width="1dip"
                 android:layout_height="match_parent"
-                android:background="#7fffffff" />
+                android:background="#7f000000" />
 
             <RelativeLayout
                 android:id="@+id/email"
@@ -133,7 +133,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dip"
             android:gravity="center_vertical"
-            android:text="历史记录" />
+            android:text="我的收藏" />
     </LinearLayout>
 
     <View
@@ -141,7 +141,7 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
     <LinearLayout
         android:id="@+id/local"
@@ -168,7 +168,7 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
     <LinearLayout
         android:id="@+id/scource"
@@ -195,7 +195,7 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
     <LinearLayout
         android:id="@+id/about"
@@ -222,7 +222,7 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
     <LinearLayout
         android:id="@+id/updata_software"
@@ -250,7 +250,7 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
 
     <LinearLayout
@@ -278,6 +278,6 @@
         android:layout_height="0.5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="20dip"
-        android:background="#7fffffff" />
+        android:background="#7f000000" />
 
 </LinearLayout>

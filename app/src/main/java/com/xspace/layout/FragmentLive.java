@@ -18,6 +18,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.net.NetUtils;
+import com.xspace.net.VersionUtils;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 import com.xspace.utils.NetAddressManager;
 
@@ -145,7 +146,8 @@ public class FragmentLive extends Fragment
             @Override
             public void run()
             {
-                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.live);
+                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.live + "?appVer="
+                        + VersionUtils.getAppVersionName(getContext()));
             }
         }).start();
     }

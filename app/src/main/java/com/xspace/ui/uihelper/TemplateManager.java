@@ -11,6 +11,7 @@ import com.xspace.ui.template.TemplateGrid2;
 import com.xspace.ui.template.TemplateGrid3;
 import com.xspace.ui.template.TemplateIndexItem;
 import com.xspace.ui.template.TemplateLineText;
+import com.xspace.ui.template.TemplateSearch;
 
 public class TemplateManager
 {
@@ -51,6 +52,10 @@ public class TemplateManager
         else if (tempId.equals(TemplateConstant.template_line_text))
         {
             return new TemplateLineText(context);
+        }
+        else if (tempId.equals(TemplateConstant.template_search))
+        {
+            return new TemplateSearch(context);
         }
         return null;
     }

@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.xspace.app.AboutActivity;
+import com.xspace.app.CategoryActivity;
 import com.xspace.app.DetailActivity;
 import com.xspace.app.FeedBackActivity;
 import com.xspace.app.LocalActivity;
+import com.xspace.app.SearchResoultActivity;
 import com.xspace.app.SettingActivity;
 import com.xspace.app.UserActivity;
 import com.xspace.app.WebActivity;
@@ -16,13 +18,13 @@ import com.xspace.module.TemplateModule;
 
 public class CategoryUtil
 {
-    private static String TypeNative = "native";
+    public static String TypeNative = "native";
 
-    private static String TypeWeb = "web";
+    public static String TypeWeb = "web";
 
-    private static String TypeHtml5 = "html5";
+    public static String TypeHtml5 = "html5";
 
-    private static String TypeOther = "other";
+    public static String TypeOther = "other";
 
     public static boolean jumpByTargetLink(Context mContext, BaseModule module, int viewFrom)
     {
@@ -126,6 +128,20 @@ public class CategoryUtil
         else if (AddressManager.Native_FeedBack.equals(item.link))
         {
             Intent intent = new Intent(mContext, FeedBackActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+            return true;
+        }
+        else if (AddressManager.Native_Search.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, SearchResoultActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
+            return true;
+        }
+        else if (AddressManager.Native_Category.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, CategoryActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
