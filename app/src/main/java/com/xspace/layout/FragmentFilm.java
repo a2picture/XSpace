@@ -17,8 +17,10 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
+import com.xspace.module.TemplateModule;
 import com.xspace.net.NetUtils;
 import com.xspace.net.VersionUtils;
+import com.xspace.ui.uihelper.TemplateConstant;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 import com.xspace.utils.NetAddressManager;
 
@@ -33,6 +35,8 @@ public class FragmentFilm extends Fragment
     private View emptyView;
 
     private ImageView error;
+
+    private int page = 0;
 
     private TemplateContainerImpl impl;
 
@@ -86,6 +90,7 @@ public class FragmentFilm extends Fragment
     {
         impl = new TemplateContainerImpl(getContext());
         listView = rootView.findViewById(R.id.pull_to_refresh);
+        listView.setMode(PullToRefreshBase.Mode.BOTH);
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>()
         {
             @Override
@@ -94,12 +99,18 @@ public class FragmentFilm extends Fragment
                 refreshView.getLoadingLayoutProxy().setRefreshingLabel("嘿咻嘿咻");
                 refreshView.getLoadingLayoutProxy().setPullLabel("客观、轻点儿");
                 refreshView.getLoadingLayoutProxy().setReleaseLabel("讨厌、还在拉");
-                ApplyNetGson(handler);
+                page = 0;
+                ApplyNetGson(handler, page);
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView)
             {
+                refreshView.getLoadingLayoutProxy().setRefreshingLabel("嘿咻嘿咻");
+                refreshView.getLoadingLayoutProxy().setPullLabel("客观、轻点儿");
+                refreshView.getLoadingLayoutProxy().setReleaseLabel("讨厌、还在拉");
+                page++;
+                ApplyNetGson(handler, page);
             }
         });
         emptyView = rootView.findViewById(R.id.empty_view);
@@ -111,11 +122,11 @@ public class FragmentFilm extends Fragment
             @Override
             public void onClick(View view)
             {
-                ApplyNetGson(handler);
+                ApplyNetGson(handler, page);
             }
         });
         impl.setListView(listView);
-        ApplyNetGson(handler);
+        ApplyNetGson(handler, page);
     }
 
     private void showEmpty()
@@ -128,7 +139,29 @@ public class FragmentFilm extends Fragment
     {
         emptyView.setVisibility(View.GONE);
         listView.setVisibility(View.VISIBLE);
-        pageModule = ModuleParser.getPageModules(gson);
+        if (page == 0)
+        {
+            pageModule = ModuleParser.getPageModules(gson);
+        }
+        else
+        {
+            PageModule temp = ModuleParser.getPageModules(gson);
+            if (temp.templateModules != null && temp.templateModules.size() > 0)
+            {
+                pageModule.templateModules.addAll(temp.templateModules);
+            }
+            else
+            {
+                if (!pageModule.templateModules.get(pageModule.templateModules.size() - 1).templateId.equals(
+                        TemplateConstant.template_end_banner))
+                {
+                    TemplateModule end = new TemplateModule();
+                    end.templateId = TemplateConstant.template_end_banner;
+                    end.description = "^_^没有更多了*_*";
+                    pageModule.templateModules.add(end);
+                }
+            }
+        }
         if (pageModule == null)
         {
             Toast.makeText(getContext(), "数据配置错误", Toast.LENGTH_SHORT).show();
@@ -138,7 +171,7 @@ public class FragmentFilm extends Fragment
         impl.startConstruct(pageModule);
     }
 
-    private void ApplyNetGson(final Handler handler)
+    private void ApplyNetGson(final Handler handler, final int p)
     {
         loading.setVisibility(View.VISIBLE);
         new Thread(new Runnable()
@@ -146,8 +179,8 @@ public class FragmentFilm extends Fragment
             @Override
             public void run()
             {
-                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.film + "?appVer="
-                        + VersionUtils.getAppVersionName(getContext()));
+                NetUtils.getAsynPageModulekHttp(handler, NetAddressManager.root_website + NetAddressManager.film
+                        + "?appVer=" + VersionUtils.getAppVersionName(getContext()) + "&page=" + p);
             }
         }).start();
     }

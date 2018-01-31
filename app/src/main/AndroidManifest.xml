@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.xspace.app.MainApplication"
+        android:name="com.xspace.MainApplication"
         android:allowBackup="true"
         android:icon="@drawable/app"
         android:label="@string/app_name"
@@ -19,26 +19,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
 
-        <activity android:name="com.xspace.app.FeedBackActivity" />
-        <activity android:name="com.xspace.app.SettingActivity" />
-        <activity android:name="com.xspace.app.AboutActivity" />
-        <activity android:name="com.xspace.app.LocalActivity" />
-        <activity android:name="com.xspace.app.UserActivity" />
-        <activity android:name="com.xspace.app.WebActivity" />
-
+        <activity android:name="com.xspace.FeedBackActivity" />
+        <activity android:name="com.xspace.RecommendActivity" />
+        <activity android:name="com.xspace.SettingActivity" />
+        <activity android:name="com.xspace.AboutActivity" />
+        <activity android:name="com.xspace.LocalActivity" />
+        <activity android:name="com.xspace.WebActivity" />
         <activity
-            android:name="com.xspace.app.SearchResoultActivity"
+            android:name="com.xspace.SearchResultActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name="com.xspace.app.CategoryActivity"
+            android:name="com.xspace.CategoryActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name="com.xspace.app.PlayerActivity"
+            android:name="com.xspace.PlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name="com.xspace.app.DetailActivity" />
-        <activity android:name="com.xspace.app.MainActivity">
+        <activity android:name="com.xspace.DetailActivity" />
+        <activity android:name="com.xspace.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,11 +51,11 @@
         <!-- 配置APP版本号 -->
         <meta-data
             android:name="BUGLY_APP_VERSION"
-            android:value="1.0" />
+            android:value="1.0.1" />
         <!-- 配置APP渠道号 -->
         <meta-data
             android:name="BUGLY_APP_CHANNEL"
-            android:value="66666" />
+            android:value="0854" />
         <!-- 配置Bugly调试模式（true或者false）-->
         <meta-data
             android:name="BUGLY_ENABLE_DEBUG"

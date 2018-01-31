@@ -4,11 +4,9 @@ public class AddressManager
 {
     public static String Native_Home = "home";
 
-    public static String Native_User = "user";
-
     public static String Native_Detail = "detail";
 
-    public static String Native_History = "history";
+    public static String Native_History = "favorite";
 
     public static String Native_Local = "local";
 
@@ -22,5 +20,11 @@ public class AddressManager
 
     public static String Native_Category = "category";
 
+    public static String Native_Recommend = "recommend";
+
     public static String Native_Player = "player";
+
+    // 跳转其他应用播放
+    public static String Native_OtherPlayer = "otherplayer";
+
 }

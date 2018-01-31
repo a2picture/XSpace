@@ -1,9 +1,5 @@
 package com.xspace.utils;
 
-/**
- * Created by jixiongxu on 2018/1/19.
- */
-
 public class NetAddressManager
 {
     public static final String root_website = "http://119.29.67.42:8080/xspace/";
@@ -25,6 +21,12 @@ public class NetAddressManager
     public static final String player = "player";
 
     public static final String downloadfail = "downloadfail";
+
+    public static final String redpay = "redpay";
+
+    public static final String recommend2friend = "recommend";
+
+    public static final String updata = "updata";
 
     public static final String myGithub = "https://github.com/jixiongxu/XSpace";
 

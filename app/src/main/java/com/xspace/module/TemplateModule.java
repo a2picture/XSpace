@@ -35,6 +35,8 @@ public class TemplateModule extends BaseModule
 
     public float scale;
 
+    public String icon;
+
     public ArrayList<TemplateModule> templateItems;
 
 }

@@ -2,6 +2,7 @@ package com.xspace.net;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -27,13 +28,13 @@ public class NetUtils
 
     public final static int REQUEST_PAGEMODULE_FAIL = REQUEST_PAGEMODULE_OK + 1;
 
-
     public static void getAsynPageModulekHttp(final Handler handler, String url)
     {
         if (url == null || "".equals(url) || handler == null)
         {
             return;
         }
+        Log.d("jixiongxu",url);
         final Message msg = handler.obtainMessage();
         OkHttpClient mOkHttpClient = new OkHttpClient();
         final Request request = new Request.Builder().url(url).build();

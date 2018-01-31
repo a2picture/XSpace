@@ -7,7 +7,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,5 +48,4 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
     implementation files('libs/bugly_crash_release.jar')
     compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
-
 }

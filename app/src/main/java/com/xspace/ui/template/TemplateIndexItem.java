@@ -1,13 +1,17 @@
 package com.xspace.ui.template;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.view.View;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
+import com.xspace.utils.MyFileUtils;
 
 import demo.pplive.com.xspace.R;
 
@@ -26,6 +30,8 @@ public class TemplateIndexItem extends BaseView
 
     private View mRootView;
 
+    private Bitmap bitmap = null;
+
     private SimpleDraweeView chapterImg;
 
     private TextView chapterTitle;
@@ -43,8 +49,9 @@ public class TemplateIndexItem extends BaseView
         this.setOrientation(VERTICAL);
         this.setLayoutParams(new LayoutParams(-1, -2));
         this.setPadding(0, 0, 0, 10);
-        mRootView = View.inflate(mContext, R.layout.template_index, null);
+        mRootView = View.inflate(mContext, R.layout.template_item, null);
         chapterImg = mRootView.findViewById(R.id.chapter_img);
+
         chapterTitle = mRootView.findViewById(R.id.chapter_title);
         chapterDesc = mRootView.findViewById(R.id.chapter_desc);
     }
@@ -76,8 +83,15 @@ public class TemplateIndexItem extends BaseView
             }
         });
         chapterTitle.setText(((TemplateModule) module).title);
-        chapterDesc.setText("\u3000" + ((TemplateModule) module).description);
-        chapterImg.setImageURI(Uri.parse(((TemplateModule) module).img_url));
+        chapterDesc.setText(
+                "\u3000" + ((TemplateModule) module).description == null ? "" : ((TemplateModule) module).description);
+        chapterImg.setImageURI(
+                Uri.parse(((TemplateModule) module).img_url == null ? "" : ((TemplateModule) module).img_url));
+        if ("localVideo".equals(((TemplateModule) module).tag))
+        {
+            MyAsyncTask task = new MyAsyncTask();
+            task.execute(((TemplateModule) module).url);
+        }
         addTemplateView();
     }
 
@@ -94,5 +108,26 @@ public class TemplateIndexItem extends BaseView
     public void reFresh()
     {
 
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    class MyAsyncTask extends AsyncTask<String, Integer, Bitmap>
+    {
+        @Override
+        protected void onPostExecute(Bitmap bitmap)
+        {
+            super.onPostExecute(bitmap);
+            chapterImg.setImageBitmap(bitmap);
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... strings)
+        {
+            if (bitmap == null)
+            {
+                bitmap = MyFileUtils.getVideoThumbnail(strings[0]);
+            }
+            return bitmap;
+        }
     }
 }

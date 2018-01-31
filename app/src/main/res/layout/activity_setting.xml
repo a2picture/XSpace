@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="30dip"
             android:layout_height="30dip"
-            android:background="@drawable/history" />
+            android:background="@drawable/clearcache" />
 
         <TextView
             android:id="@+id/cache_txt"
@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dip"
             android:gravity="center_vertical"
-            android:text="清除缓存 (10.3M)" />
+            android:text="清除缓存 (0M)" />
     </LinearLayout>
 
     <View
@@ -44,7 +44,7 @@
         <ImageView
             android:layout_width="30dip"
             android:layout_height="30dip"
-            android:background="@drawable/local" />
+            android:background="@drawable/allow4g" />
 
         <TextView
             android:layout_width="0dip"
@@ -76,7 +76,7 @@
         <ImageView
             android:layout_width="30dip"
             android:layout_height="30dip"
-            android:background="@drawable/scource" />
+            android:background="@drawable/feedback" />
 
         <TextView
             android:layout_width="match_parent"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/app_name"
-            android:textColor="@color/green" />
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 
 

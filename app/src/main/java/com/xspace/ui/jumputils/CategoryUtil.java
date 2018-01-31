@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.xspace.app.AboutActivity;
-import com.xspace.app.CategoryActivity;
-import com.xspace.app.DetailActivity;
-import com.xspace.app.FeedBackActivity;
-import com.xspace.app.LocalActivity;
-import com.xspace.app.PlayerActivity;
-import com.xspace.app.SearchResoultActivity;
-import com.xspace.app.SettingActivity;
-import com.xspace.app.UserActivity;
-import com.xspace.app.WebActivity;
+import com.xspace.AboutActivity;
+import com.xspace.CategoryActivity;
+import com.xspace.DetailActivity;
+import com.xspace.FeedBackActivity;
+import com.xspace.LocalActivity;
+import com.xspace.PlayerActivity;
+import com.xspace.RecommendActivity;
+import com.xspace.SearchResultActivity;
+import com.xspace.SettingActivity;
+import com.xspace.WebActivity;
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
 
@@ -84,14 +84,7 @@ public class CategoryUtil
 
     private static boolean jumpToNative(Context mContext, TemplateModule item, int viewFrom)
     {
-        if (AddressManager.Native_User.equals(item.link))
-        {
-            Intent intent = new Intent(mContext, UserActivity.class);
-            intent.putExtra("module", item);
-            mContext.startActivity(intent);
-            return true;
-        }
-        else if (AddressManager.Native_Detail.equals(item.link))
+        if (AddressManager.Native_Detail.equals(item.link))
         {
             Intent intent = new Intent(mContext, DetailActivity.class);
             intent.putExtra("module", item);
@@ -135,7 +128,7 @@ public class CategoryUtil
         }
         else if (AddressManager.Native_Search.equals(item.link))
         {
-            Intent intent = new Intent(mContext, SearchResoultActivity.class);
+            Intent intent = new Intent(mContext, SearchResultActivity.class);
             intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
@@ -153,6 +146,12 @@ public class CategoryUtil
             intent.putExtra("module", item);
             mContext.startActivity(intent);
             return true;
+        }
+        else if (AddressManager.Native_Recommend.equals(item.link))
+        {
+            Intent intent = new Intent(mContext, RecommendActivity.class);
+            intent.putExtra("module", item);
+            mContext.startActivity(intent);
         }
         return false;
     }

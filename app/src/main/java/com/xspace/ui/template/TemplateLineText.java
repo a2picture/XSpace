@@ -2,8 +2,6 @@ package com.xspace.ui.template;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,7 +27,7 @@ public class TemplateLineText extends BaseView
 {
     public static final String TAG = "template_line_text";
 
-    private ClipboardManager cm;
+    private boolean download_ok = true;
 
     private int width;
 
@@ -44,7 +42,6 @@ public class TemplateLineText extends BaseView
     private void initView()
     {
         this.setOrientation(VERTICAL);
-        cm = (ClipboardManager) getmContext().getSystemService(Context.CLIPBOARD_SERVICE);
         setPadding(0, 10, 0, 10);
         width = DisplayUtil.screenWidthPx(mContext);
         mRootView = new LinearLayout(mContext);
@@ -100,7 +97,6 @@ public class TemplateLineText extends BaseView
                 }
             });
         }
-
         mRootView.addView(title);
         mRootView.addView(subtitle);
         mRootView.addView(line, 1);
@@ -111,42 +107,41 @@ public class TemplateLineText extends BaseView
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getmContext());
         builder.setTitle("下载");
-        builder.setMessage("正在下载：" + ((TemplateModule) module).subtitle);
-        builder.setPositiveButton("下载到本地", new DialogInterface.OnClickListener()
+        builder.setMessage("即将跳转迅雷下载：" + ((TemplateModule) module).subtitle);
+        builder.setPositiveButton("迅雷下载", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                ClipData myClip;
-                myClip = ClipData.newPlainText("e-mail", ((TemplateModule) module).subtitle);
-                cm.setPrimaryClip(myClip);
                 try
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(((TemplateModule) module).subtitle));
                     intent.addCategory("android.intent.category.DEFAULT");
                     mContext.startActivity(intent);
+                    download_ok = true;
                 }
                 catch (ActivityNotFoundException e)
                 {
-                    //下载失败就反馈到数据库中
-                    Toast.makeText(mContext, "您的手机尚未安装迅雷", Toast.LENGTH_SHORT).show();
-                    String url = NetAddressManager.root_website + NetAddressManager.downloadfail + "?vid="
-                            + ((TemplateModule) module).subtitle + "&appVer=" + VersionUtils.getAppVersionName(mContext);
-                    ApplyNetGson(null, url);
+                    // 下载失败就反馈到数据库中
+                    Toast.makeText(mContext, "下载失败  请检查是否安装迅雷", Toast.LENGTH_SHORT).show();
+                    download_ok = false;
                     e.printStackTrace();
+                }
+                finally
+                {
+                    if (!download_ok)
+                    {
+                        String ftp_url = Uri.encode(
+                                ((TemplateModule) module).subtitle == null ? "" : ((TemplateModule) module).subtitle,
+                                "iso-8859-1");
+                        String url = NetAddressManager.root_website + NetAddressManager.downloadfail + "?ftp_url="
+                                + ftp_url + "&appVer=" + VersionUtils.getAppVersionName(mContext);
+                        ApplyNetGson(new Handler(), url);
+                    }
                 }
             }
         });
-        builder.setNegativeButton("添加到收藏", new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                Toast.makeText(getContext(), "已复制" + ((TemplateModule) module).subtitle + "到粘贴板",
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        builder.setNegativeButton("取消", null);
         builder.show();
     }
 

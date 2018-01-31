@@ -19,4 +19,6 @@ public class TemplateConstant
     public static final String template_line_text = "template_line_text";
 
     public static final String template_search = "template_search";
+
+    public static final String template_film_disco = "template_film_disco";
 }

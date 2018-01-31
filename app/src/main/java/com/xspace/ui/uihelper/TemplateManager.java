@@ -6,6 +6,7 @@ import com.xspace.ui.template.BaseView;
 import com.xspace.ui.template.TemplateBanner;
 import com.xspace.ui.template.TemplateCover;
 import com.xspace.ui.template.TemplateEndBanner;
+import com.xspace.ui.template.TemplateFilmDisco;
 import com.xspace.ui.template.TemplateGrid;
 import com.xspace.ui.template.TemplateGrid2;
 import com.xspace.ui.template.TemplateGrid3;
@@ -56,6 +57,10 @@ public class TemplateManager
         else if (tempId.equals(TemplateConstant.template_search))
         {
             return new TemplateSearch(context);
+        }
+        else if (tempId.equals(TemplateConstant.template_film_disco))
+        {
+            return new TemplateFilmDisco(context);
         }
         return null;
     }
