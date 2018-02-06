@@ -8,10 +8,11 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.TextView;
 
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.xspace.module.BaseModule;
 import com.xspace.module.TemplateModule;
-import com.xspace.utils.MyFileUtils;
+import com.xspace.utils.FileSystemUtils;
 
 import demo.pplive.com.xspace.R;
 
@@ -51,7 +52,8 @@ public class TemplateIndexItem extends BaseView
         this.setPadding(0, 0, 0, 10);
         mRootView = View.inflate(mContext, R.layout.template_item, null);
         chapterImg = mRootView.findViewById(R.id.chapter_img);
-
+        GenericDraweeHierarchy hierarchy = chapterImg.getHierarchy();
+        hierarchy.setFailureImage(R.drawable.app);
         chapterTitle = mRootView.findViewById(R.id.chapter_title);
         chapterDesc = mRootView.findViewById(R.id.chapter_desc);
     }
@@ -125,7 +127,7 @@ public class TemplateIndexItem extends BaseView
         {
             if (bitmap == null)
             {
-                bitmap = MyFileUtils.getVideoThumbnail(strings[0]);
+                bitmap = FileSystemUtils.getVideoThumbnail(strings[0]);
             }
             return bitmap;
         }

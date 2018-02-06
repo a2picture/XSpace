@@ -17,7 +17,7 @@ import com.xspace.net.NetUtils;
 import com.xspace.net.VersionUtils;
 import com.xspace.ui.uihelper.TemplateConstant;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
-import com.xspace.utils.MyFileUtils;
+import com.xspace.utils.FileSystemUtils;
 import com.xspace.utils.NetAddressManager;
 
 import java.util.ArrayList;
@@ -76,7 +76,7 @@ public class PlayerActivity extends BaseActivity
             // videoPlayer.thumbImageView.setImageURI(Uri.parse(module.img_url
             // == null ? "" : module.img_url));
             videoPlayer.thumbImageView.setImageResource(R.drawable.movie);
-            historyPage = (PageModule) MyFileUtils.getSerializableFromLocal("history");
+            historyPage = (PageModule) FileSystemUtils.getSerializableFromLocal("history");
             if (historyPage == null)
             {
                 historyPage = new PageModule();
@@ -99,7 +99,7 @@ public class PlayerActivity extends BaseActivity
                 }
             }
             historyPage.templateModules.add(0, templateModule);
-            MyFileUtils.Serializable2Local("history", historyPage);
+            FileSystemUtils.Serializable2Local("history", historyPage);
         }
         else
         {

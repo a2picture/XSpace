@@ -8,14 +8,18 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
+import com.xspace.module.TemplateModule;
 import com.xspace.net.NetUtils;
 import com.xspace.net.VersionUtils;
+import com.xspace.ui.uihelper.TemplateConstant;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
 import com.xspace.utils.NetAddressManager;
 
@@ -31,6 +35,8 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
 
     private String url;
 
+    private int page = 0;
+
     private PullToRefreshListView listView;
 
     private ImageView error;
@@ -44,6 +50,7 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         @Override
         public void handleMessage(Message msg)
         {
+            listView.onRefreshComplete();
             switch (msg.what)
             {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
@@ -61,6 +68,7 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_category);
         back = findViewById(R.id.img_back);
         listView = findViewById(R.id.pull_to_refresh);
+
         emptyView = findViewById(R.id.empty_view);
         title = findViewById(R.id.title_txt);
         if (!"".equals(module.title))
@@ -77,9 +85,36 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         back.setOnClickListener(this);
         impl = new TemplateContainerImpl(context);
         impl.setListView(listView);
-        url = NetAddressManager.root_website + NetAddressManager.category + "?categoryId=" + module.vid + "&appVer="
-                + VersionUtils.getAppVersionName(context);
+        url = NetAddressManager.root_website + NetAddressManager.category + "?categoryId=" + module.vid + "&page="
+                + page + "&appVer=" + VersionUtils.getAppVersionName(context);
         ApplyNetGson(handler, url);
+        listView.setMode(PullToRefreshBase.Mode.BOTH);
+        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>()
+        {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView)
+            {
+                refreshView.getLoadingLayoutProxy().setRefreshingLabel("嘿咻嘿咻");
+                refreshView.getLoadingLayoutProxy().setPullLabel("客观、轻点儿");
+                refreshView.getLoadingLayoutProxy().setReleaseLabel("讨厌、还在拉");
+                page = 0;
+                url = NetAddressManager.root_website + NetAddressManager.category + "?categoryId=" + module.vid
+                        + "&page=" + page + "&appVer=" + VersionUtils.getAppVersionName(context);
+                ApplyNetGson(handler, url);
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView)
+            {
+                refreshView.getLoadingLayoutProxy().setRefreshingLabel("嘿咻嘿咻");
+                refreshView.getLoadingLayoutProxy().setPullLabel("客观、轻点儿");
+                refreshView.getLoadingLayoutProxy().setReleaseLabel("讨厌、还在拉");
+                page++;
+                url = NetAddressManager.root_website + NetAddressManager.category + "?categoryId=" + module.vid
+                        + "&page=" + page + "&appVer=" + VersionUtils.getAppVersionName(context);
+                ApplyNetGson(handler, url);
+            }
+        });
     }
 
     private void ApplyNetGson(final Handler handler, final String url)
@@ -114,14 +149,60 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    protected void show(String gson)
+    public void show(String gson)
     {
         emptyView.setVisibility(View.GONE);
         listView.setVisibility(View.VISIBLE);
-        pageModule = ModuleParser.getPageModules(gson);
+        if (page == 0)
+        {
+            pageModule = ModuleParser.getPageModules(gson);
+            if (pageModule.templateModules == null)
+            {
+                return;
+            }
+            if (pageModule.templateModules.size() == 0)
+            {
+                TemplateModule end = new TemplateModule();
+                end.templateId = TemplateConstant.template_end_banner;
+                end.description = "^_^没有更多了*_*";
+                pageModule.templateModules.add(end);
+                return;
+            }
+        }
+        else
+        {
+            PageModule temp = ModuleParser.getPageModules(gson);
+            if (temp.templateModules != null && temp.templateModules.size() > 0)
+            {
+                pageModule.templateModules.addAll(temp.templateModules);
+            }
+            else
+            {
+                if (pageModule.templateModules == null)
+                {
+                    return;
+                }
+                if (pageModule.templateModules.size() == 0)
+                {
+                    TemplateModule end = new TemplateModule();
+                    end.templateId = TemplateConstant.template_end_banner;
+                    end.description = "^_^没有更多了*_*";
+                    pageModule.templateModules.add(end);
+                    return;
+                }
+                if (!pageModule.templateModules.get(pageModule.templateModules.size() - 1).templateId.equals(
+                        TemplateConstant.template_end_banner))
+                {
+                    TemplateModule end = new TemplateModule();
+                    end.templateId = TemplateConstant.template_end_banner;
+                    end.description = "^_^没有更多了*_*";
+                    pageModule.templateModules.add(end);
+                }
+            }
+        }
         if (pageModule == null)
         {
-            Toast.makeText(context, "数据配置出错", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "数据配置错误", Toast.LENGTH_SHORT).show();
             showEmpty();
             return;
         }

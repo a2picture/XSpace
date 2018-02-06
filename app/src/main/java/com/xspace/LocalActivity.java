@@ -12,7 +12,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.xspace.module.PageModule;
 import com.xspace.ui.jumputils.AddressManager;
 import com.xspace.ui.uihelper.TemplateContainerImpl;
-import com.xspace.utils.MyFileUtils;
+import com.xspace.utils.FileSystemUtils;
 
 import demo.pplive.com.xspace.R;
 
@@ -59,7 +59,7 @@ public class LocalActivity extends BaseActivity implements View.OnClickListener
     {
         if (AddressManager.Native_Local.equals(module.link))
         {
-            pageModule = (PageModule) MyFileUtils.getSerializableFromLocal("localVideo");
+            pageModule = (PageModule) FileSystemUtils.getSerializableFromLocal("localVideo");
             impl.setListView(listView);
             impl.startConstruct(pageModule);
         }
@@ -69,7 +69,7 @@ public class LocalActivity extends BaseActivity implements View.OnClickListener
     {
         if (AddressManager.Native_History.equals(module.link))
         {
-            pageModule = (PageModule) MyFileUtils.getSerializableFromLocal("history");
+            pageModule = (PageModule) FileSystemUtils.getSerializableFromLocal("history");
             impl.setListView(listView);
             impl.startConstruct(pageModule);
         }

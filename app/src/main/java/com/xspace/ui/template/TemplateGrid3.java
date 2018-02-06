@@ -149,6 +149,10 @@ public class TemplateGrid3 extends BaseView
 
     private void auto()
     {
+        if (adapter.getCount() < 1)
+        {
+            return;
+        }
         TimerTask task = new TimerTask()
         {
             @Override

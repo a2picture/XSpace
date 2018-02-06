@@ -2,6 +2,9 @@ package com.xspace.utils;
 
 public class NetAddressManager
 {
+
+    public static final String erroImg = "http://b364.photo.store.qq.com/psb?/V12aZMou1jboFH/hCxZXYcOCJrRiMwxsBRhNkRp*gYeQU5F9v9fMDWAV14!/b/dGwBAAAAAAAA&bo=gAcABQAAAAARCbw!&rf=viewer_4";
+
     public static final String root_website = "http://119.29.67.42:8080/xspace/";
 
     public static final String home = "home";

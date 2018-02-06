@@ -22,7 +22,7 @@ import java.io.Serializable;
  * Created by jixiongxu on 2018/1/30.
  */
 
-public class MyFileUtils implements Serializable
+public class FileSystemUtils implements Serializable
 {
     // 保存文件的路径
     private static String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/xspace/local/";

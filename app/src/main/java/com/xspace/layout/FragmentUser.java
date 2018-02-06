@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.xspace.module.ModuleParser;
 import com.xspace.module.PageModule;
 import com.xspace.module.TemplateModule;
@@ -30,7 +29,7 @@ import com.xspace.net.NetUtils;
 import com.xspace.net.VersionUtils;
 import com.xspace.ui.jumputils.AddressManager;
 import com.xspace.ui.jumputils.CategoryUtil;
-import com.xspace.utils.MyFileUtils;
+import com.xspace.utils.FileSystemUtils;
 import com.xspace.utils.NetAddressManager;
 import com.xspace.utils.VideoScanUtils;
 
@@ -210,7 +209,7 @@ public class FragmentUser extends Fragment implements View.OnClickListener
                         localvideos.setText(localpage.templateModules == null ? "0"
                                 : String.valueOf(localpage.templateModules.size()));
                         Log.d("jixiongxu",
-                                "Serializable2Local" + MyFileUtils.Serializable2Local("localVideo", localpage));
+                                "Serializable2Local" + FileSystemUtils.Serializable2Local("localVideo", localpage));
                     }
                 });
                 historycount.post(new Runnable()
@@ -218,7 +217,7 @@ public class FragmentUser extends Fragment implements View.OnClickListener
                     @Override
                     public void run()
                     {
-                        PageModule history = (PageModule) MyFileUtils.getSerializableFromLocal("history");
+                        PageModule history = (PageModule) FileSystemUtils.getSerializableFromLocal("history");
                         if (history == null || history.templateModules == null)
                         {
                             historycount.setText("0");

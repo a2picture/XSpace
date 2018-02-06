@@ -84,7 +84,11 @@ public class TemplateCover extends BaseView
         }
         title.setText(((TemplateModule) module).title == null ? "" : ((TemplateModule) module).title);
         title.setPadding(20, 10, 0, 10);
-        simpleDraweeView.setImageURI(Uri.parse(((TemplateModule) module).img_url));
+        if (((TemplateModule) module).img_url != null)
+        {
+            simpleDraweeView.setImageURI(
+                    Uri.parse("".equals(((TemplateModule) module).img_url) ? "" : ((TemplateModule) module).img_url));
+        }
         addTemplateView();
     }
 
