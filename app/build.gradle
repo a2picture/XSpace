@@ -11,6 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+
     sourceSets {
         main.jniLibs.srcDirs = ['libs']
     }
@@ -19,6 +20,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -48,4 +54,6 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
     implementation files('libs/bugly_crash_release.jar')
     compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
+    compile name: 'YoumiSdk_v7.5.1_2018-01-16', ext: 'aar'
+    implementation files('libs/miadtracker.jar')
 }

@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.xspace.MainActivity">
+    tools:context="com.uniFun.MainActivity">
 
-    <com.xspace.ui.view.NoScrollViewPage
+    <com.uniFun.ui.view.NoScrollViewPage
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="0dip"
