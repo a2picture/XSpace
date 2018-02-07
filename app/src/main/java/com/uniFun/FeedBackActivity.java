@@ -2,6 +2,7 @@ package com.uniFun;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -142,8 +143,8 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.submit:
-                String rec = editRecoment.getText().toString();
-                String user = editConnect.getText().toString();
+                String rec = Uri.encode(editRecoment.getText().toString(), "iso-8859-1");
+                String user = Uri.encode(editConnect.getText().toString(), "iso-8859-1");
                 if ("".equals(rec))
                 {
                     Toast.makeText(context, "请填写反馈内容", Toast.LENGTH_SHORT).show();
