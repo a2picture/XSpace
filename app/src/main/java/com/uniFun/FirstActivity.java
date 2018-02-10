@@ -14,7 +14,6 @@ import abc.abc.abc.nm.cm.ErrorCode;
 import abc.abc.abc.nm.sp.SplashViewSettings;
 import abc.abc.abc.nm.sp.SpotManager;
 import abc.abc.abc.nm.sp.SpotRequestListener;
-import demo.pplive.com.xspace.R;
 
 public class FirstActivity extends Activity
 {

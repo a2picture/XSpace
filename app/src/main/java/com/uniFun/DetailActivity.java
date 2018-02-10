@@ -18,7 +18,6 @@ import com.uniFun.net.VersionUtils;
 import com.uniFun.ui.uihelper.TemplateContainerImpl;
 import com.uniFun.utils.NetAddressManager;
 
-import demo.pplive.com.xspace.R;
 
 public class DetailActivity extends BaseActivity implements View.OnClickListener
 {

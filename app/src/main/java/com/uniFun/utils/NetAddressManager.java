@@ -33,4 +33,6 @@ public class NetAddressManager
 
     public static final String myGithub = "https://github.com/jixiongxu/XSpace";
 
+    public static final String tip = "softdec";
+
 }

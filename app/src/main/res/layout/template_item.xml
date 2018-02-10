@@ -5,10 +5,12 @@
     android:gravity="center"
     android:orientation="horizontal">
 
+
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/chapter_img"
         android:layout_width="150dip"
         android:layout_height="90dip"
+        android:background="@drawable/loading"
         android:scaleType="fitXY" />
 
     <RelativeLayout

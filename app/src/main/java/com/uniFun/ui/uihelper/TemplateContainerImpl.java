@@ -9,6 +9,8 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.uniFun.module.PageModule;
 import com.uniFun.ui.template.BaseView;
 
+import java.lang.ref.WeakReference;
+
 /**
  * <一句话功能简述> <模板构建实现>
  *
@@ -71,6 +73,16 @@ public class TemplateContainerImpl
         }
 
         @Override
+        public int getItemViewType(int position) {
+            return super.getItemViewType(position);
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return super.getViewTypeCount();
+        }
+
+        @Override
         public int getCount()
         {
             if (pageModule == null || pageModule.templateModules == null)
@@ -103,8 +115,8 @@ public class TemplateContainerImpl
             {
                 return null;
             }
-
-            BaseView template = TemplateManager.findViewById(context, pageModule.templateModules.get(i).templateId);
+            BaseView template = TemplateManager.findViewById(new WeakReference<>(context).get(),
+                    pageModule.templateModules.get(i).templateId);
             if (template == null)
             {
                 return null;

@@ -7,10 +7,10 @@ import android.widget.TextView;
 
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.uniFun.R;
 import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 
-import demo.pplive.com.xspace.R;
 
 /**
  * Created by jixiongxu on 2018/1/31.

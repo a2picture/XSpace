@@ -13,8 +13,6 @@ import com.uniFun.net.VersionUtils;
 import com.uniFun.ui.jumputils.AddressManager;
 import com.uniFun.ui.jumputils.CategoryUtil;
 
-import demo.pplive.com.xspace.R;
-
 public class AboutActivity extends BaseActivity implements View.OnClickListener
 {
     private TextView website;

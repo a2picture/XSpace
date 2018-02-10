@@ -14,7 +14,6 @@ import com.uniFun.ui.jumputils.AddressManager;
 import com.uniFun.ui.uihelper.TemplateContainerImpl;
 import com.uniFun.utils.FileSystemUtils;
 
-import demo.pplive.com.xspace.R;
 
 public class LocalActivity extends BaseActivity implements View.OnClickListener
 {

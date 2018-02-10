@@ -1,11 +1,11 @@
 package com.uniFun.layout;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +14,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.uniFun.R;
 import com.uniFun.module.ModuleParser;
 import com.uniFun.module.PageModule;
 import com.uniFun.module.TemplateModule;
@@ -29,14 +29,14 @@ import com.uniFun.net.NetUtils;
 import com.uniFun.net.VersionUtils;
 import com.uniFun.ui.jumputils.AddressManager;
 import com.uniFun.ui.jumputils.CategoryUtil;
+import com.uniFun.ui.view.MyDialog;
 import com.uniFun.utils.FileSystemUtils;
 import com.uniFun.utils.NetAddressManager;
 import com.uniFun.utils.VideoScanUtils;
 
-import demo.pplive.com.xspace.R;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class FragmentUser extends Fragment implements View.OnClickListener
 {
@@ -245,38 +245,37 @@ public class FragmentUser extends Fragment implements View.OnClickListener
             lastversion.setText("最新版本:" + module.title);
             if (isClickUpdata)
             {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("软件更新");
-                builder.setMessage("立即更新软件到:" + module.title + "  版本");
-                builder.setPositiveButton("立即更新", new DialogInterface.OnClickListener()
+                MyDialog myDialog = new MyDialog(getContext(), R.style.dialog, "立即更新软件到:" + module.title + "  版本");
+                myDialog.setTitle("软件更新");
+                myDialog.setPositiveButton("立即更新");
+                myDialog.setNegativeButton("取消");
+                myDialog.setOnCloseListener(new MyDialog.OnCloseListener()
                 {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
+                    public void onClick(Dialog dialog, boolean confirm)
                     {
-                        try
+                        if (confirm)
                         {
-                            Intent intent = new Intent(Intent.ACTION_VIEW,
-                                    Uri.parse((module.message) == null ? "" : module.message));
-                            intent.addCategory("android.intent.category.DEFAULT");
-                            getContext().startActivity(intent);
+                            try
+                            {
+                                Intent intent = new Intent(Intent.ACTION_VIEW,
+                                        Uri.parse((module.message) == null ? "" : module.message));
+                                intent.addCategory("android.intent.category.DEFAULT");
+                                getContext().startActivity(intent);
+                            }
+                            catch (ActivityNotFoundException e)
+                            {
+                                Toast.makeText(getContext(), "下载失败  未知错误", Toast.LENGTH_SHORT).show();
+                                e.printStackTrace();
+                            }
                         }
-                        catch (ActivityNotFoundException e)
+                        else
                         {
-                            Toast.makeText(getContext(), "下载失败  未知错误", Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
+                            Toast.makeText(getContext(), "已取消", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
-                    {
-                        Toast.makeText(getContext(), "已取消", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.create();
-                builder.show();
+                myDialog.show();
             }
         }
         else
@@ -315,30 +314,29 @@ public class FragmentUser extends Fragment implements View.OnClickListener
 
     private void addToClipBord()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("联系作者");
-        builder.setMessage("正在复制邮箱信息：" + emailTxt.getText().toString());
-        builder.setPositiveButton("复制", new DialogInterface.OnClickListener()
+        MyDialog myDialog = new MyDialog(getContext(), R.style.dialog, "正在复制邮箱信息：" + emailTxt.getText().toString());
+        myDialog.setTitle("联系作者");
+        myDialog.setPositiveButton("复制");
+        myDialog.setNegativeButton("取消");
+        myDialog.setOnCloseListener(new MyDialog.OnCloseListener()
         {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
+            public void onClick(Dialog dialog, boolean confirm)
             {
-                ClipData myClip;
-                myClip = ClipData.newPlainText("e-mail", emailTxt.getText().toString());
-                cm.setPrimaryClip(myClip);
-                Toast.makeText(getContext(), "邮箱：" + emailTxt.getText().toString() + "已复制", Toast.LENGTH_SHORT).show();
+                if (confirm)
+                {
+                    ClipData myClip;
+                    myClip = ClipData.newPlainText("e-mail", emailTxt.getText().toString());
+                    cm.setPrimaryClip(myClip);
+                    Toast.makeText(getContext(), "邮箱：" + emailTxt.getText().toString() + "已复制", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "已取消", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                Toast.makeText(getContext(), "已取消", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.create();
-        builder.show();
+        myDialog.show();
     }
 
     private void jumpToUpdata()

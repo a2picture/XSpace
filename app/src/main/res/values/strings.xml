@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">uniFun</string>
+    <string name="powerby">Power By uniFun </string>
     <string name="nav_search">GO</string>
     <string name="copy_right"> Copyright © 2018 Creat By Jixiongxu</string>
     <string name="nav_home">主页</string>
@@ -7,5 +8,9 @@
     <string name="nav_user">个人中心</string>
     <string name="nav_find">影评</string>
     <string name="tool_detail">资源详情</string>
+    <string name="about_soft">软件声明</string>
+    <string name="soft_dec">1、该软件为开源软件,仅提供学习使用；
+2、禁止一切的商用行为，任何商用行为引起的法律纠纷开发者不负任何法律责任；
+3、软件中的资源来源于网络，若引用的资源中涉及到版权问题请及时联系开发者 E-mai:991167006@qq.com"</string>
 
 </resources>

@@ -12,7 +12,7 @@ import com.uniFun.ui.jumputils.AddressManager;
 import com.uniFun.ui.jumputils.CategoryUtil;
 import com.uniFun.utils.DisplayUtil;
 
-import demo.pplive.com.xspace.R;
+import com.uniFun.R;
 
 public class TemplateSearch extends BaseView
 {
@@ -67,7 +67,8 @@ public class TemplateSearch extends BaseView
     {
         if (module instanceof TemplateModule)
         {
-            editText.setHint(((TemplateModule) module).title == null ? "搜索" : ((TemplateModule) module).title);
+            editText.setHint("\u3000\u3000"
+                    + (((TemplateModule) module).title == null ? "搜索" : ((TemplateModule) module).title));
         }
         addTemplateView();
     }
@@ -81,7 +82,6 @@ public class TemplateSearch extends BaseView
     @Override
     public void reFresh()
     {
-
     }
 
 }

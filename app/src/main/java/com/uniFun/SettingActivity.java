@@ -14,7 +14,7 @@ import com.uniFun.ui.jumputils.AddressManager;
 import com.uniFun.ui.jumputils.CategoryUtil;
 import com.uniFun.utils.CleanMessageUtil;
 
-import demo.pplive.com.xspace.R;
+
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener
 {

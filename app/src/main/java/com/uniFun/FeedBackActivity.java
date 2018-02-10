@@ -1,7 +1,6 @@
 package com.uniFun;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,9 +21,8 @@ import com.uniFun.module.PageModule;
 import com.uniFun.net.NetUtils;
 import com.uniFun.net.VersionUtils;
 import com.uniFun.ui.jumputils.AddressManager;
+import com.uniFun.ui.view.MyDialog;
 import com.uniFun.utils.NetAddressManager;
-
-import demo.pplive.com.xspace.R;
 
 public class FeedBackActivity extends BaseActivity implements View.OnClickListener
 {
@@ -94,11 +92,22 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
 
     private void showFeedBackFail()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("反馈失败");
-        builder.setMessage("哎呀、不知道怎么就出错了π_π");
-        builder.setPositiveButton("再试一次", null);
-        builder.show();
+        MyDialog dialog = new MyDialog(context, R.style.dialog, "客观再玩一会嘛,咩..^_^");
+        dialog.setTitle("反馈失败");
+        dialog.setPositiveButton("再试一次");
+        dialog.setNegativeButton("取消");
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
+        {
+            @Override
+            public void onClick(Dialog dialog, boolean confirm)
+            {
+                if (confirm)
+                {
+                    submit();
+                }
+            }
+        });
+        dialog.show();
     }
 
     private void showFeedBackOk()
@@ -108,18 +117,19 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
             showFeedBackFail();
             return;
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("反馈完成");
-        builder.setMessage(getResources().getString(R.string.app_name) + "\u3000已经查收、正在安排FBI信息特工查看您的意见");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+        MyDialog dialog = new MyDialog(context, R.style.dialog, "\u3000已经查收、正在安排FBI信息特工查看您的意见");
+        dialog.setTitle("反馈完成");
+        dialog.setPositiveButton("确定");
+        dialog.setNegativeButton("取消");
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
         {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
+            public void onClick(Dialog dialog, boolean confirm)
             {
                 finish();
             }
         });
-        builder.show();
+        dialog.show();
     }
 
     @Override
@@ -143,25 +153,30 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.submit:
-                String rec = Uri.encode(editRecoment.getText().toString(), "iso-8859-1");
-                String user = Uri.encode(editConnect.getText().toString(), "iso-8859-1");
-                if ("".equals(rec))
-                {
-                    Toast.makeText(context, "请填写反馈内容", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                if ("".equals(user))
-                {
-                    Toast.makeText(context, "请填写您的联系方式", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                String url = NetAddressManager.root_website + NetAddressManager.feedback + "?content=" + rec + "&user="
-                        + user + "&appVer=" + VersionUtils.getAppVersionName(context);
-                submitRecoment(handler, url);
+                submit();
                 break;
             default:
                 break;
         }
+    }
+
+    private void submit()
+    {
+        String rec = Uri.encode(editRecoment.getText().toString(), "iso-8859-1");
+        String user = Uri.encode(editConnect.getText().toString(), "iso-8859-1");
+        if ("".equals(rec))
+        {
+            Toast.makeText(context, "请填写反馈内容", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if ("".equals(user))
+        {
+            Toast.makeText(context, "请填写您的联系方式", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String url = NetAddressManager.root_website + NetAddressManager.feedback + "?content=" + rec + "&user=" + user
+                + "&appVer=" + VersionUtils.getAppVersionName(context);
+        submitRecoment(handler, url);
     }
 
     private void submitRecoment(final Handler handler, final String url)

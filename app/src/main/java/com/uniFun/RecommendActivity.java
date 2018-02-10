@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import demo.pplive.com.xspace.R;
+
 
 /**
  * <一句话功能简述> <推荐给好友>

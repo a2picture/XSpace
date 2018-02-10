@@ -19,13 +19,13 @@ public abstract class BaseView extends LinearLayout
     public BaseView(Context context)
     {
         super(context);
-        mContext = context;
+        this.mContext = context;
     }
 
     public BaseView(Context context, @Nullable AttributeSet attrs)
     {
         super(context, attrs);
-        mContext = context;
+        this.mContext = context;
     }
 
     protected void onItemClick(BaseModule module)
@@ -50,5 +50,4 @@ public abstract class BaseView extends LinearLayout
     public abstract void addTemplateView();
 
     public abstract void reFresh();
-
 }

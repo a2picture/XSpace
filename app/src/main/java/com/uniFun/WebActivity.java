@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import demo.pplive.com.xspace.R;
 
 public class WebActivity extends BaseActivity
 {

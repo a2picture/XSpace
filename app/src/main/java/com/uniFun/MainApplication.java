@@ -12,6 +12,6 @@ public class MainApplication extends Application
     {
         super.onCreate();
         Fresco.initialize(this);
-        CrashReport.initCrashReport(getApplicationContext(), "297355a5c6", false);
+        CrashReport.initCrashReport(getApplicationContext(), "9068dc4f25", false);
     }
 }

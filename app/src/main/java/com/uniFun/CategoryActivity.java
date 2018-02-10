@@ -9,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +24,11 @@ import com.uniFun.ui.uihelper.TemplateConstant;
 import com.uniFun.ui.uihelper.TemplateContainerImpl;
 import com.uniFun.utils.NetAddressManager;
 
-import demo.pplive.com.xspace.R;
-
 public class CategoryActivity extends BaseActivity implements View.OnClickListener
 {
     private ImageView back;
+
+    private ProgressBar loading;
 
     private TextView title;
 
@@ -56,6 +57,9 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
                 case NetUtils.REQUEST_PAGEMODULE_OK:
                     show(msg.obj.toString());
                     break;
+                default:
+                    Toast.makeText(context, "数据请求失败！", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };
@@ -68,7 +72,7 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_category);
         back = findViewById(R.id.img_back);
         listView = findViewById(R.id.pull_to_refresh);
-
+        loading = findViewById(R.id.loading);
         emptyView = findViewById(R.id.empty_view);
         title = findViewById(R.id.title_txt);
         if (!"".equals(module.title))
@@ -119,8 +123,10 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
 
     private void ApplyNetGson(final Handler handler, final String url)
     {
+        loading.setVisibility(View.VISIBLE);
         if (url == null || "".equals(url))
         {
+            loading.setVisibility(View.GONE);
             return;
         }
         new Thread(new Runnable()
@@ -131,6 +137,7 @@ public class CategoryActivity extends BaseActivity implements View.OnClickListen
                 NetUtils.getAsynPageModulekHttp(handler, url);
             }
         }).start();
+        loading.setVisibility(View.GONE);
     }
 
     @Override

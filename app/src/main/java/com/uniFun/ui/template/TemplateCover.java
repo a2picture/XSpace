@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.uniFun.R;
 import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 import com.uniFun.utils.DisplayUtil;
@@ -78,6 +79,7 @@ public class TemplateCover extends BaseView
         }
         simpleDraweeView.setLayoutParams(new LayoutParams(width, (int) (width * scale)));
         simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
+        simpleDraweeView.setBackground(mContext.getResources().getDrawable(R.drawable.loading));
         if ("".equals(((TemplateModule) module).subtitle))
         {
             title.setVisibility(GONE);

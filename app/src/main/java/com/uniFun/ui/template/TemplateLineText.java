@@ -1,9 +1,10 @@
 package com.uniFun.ui.template;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -18,10 +19,11 @@ import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 import com.uniFun.net.NetUtils;
 import com.uniFun.net.VersionUtils;
+import com.uniFun.ui.view.MyDialog;
 import com.uniFun.utils.DisplayUtil;
 import com.uniFun.utils.NetAddressManager;
 
-import demo.pplive.com.xspace.R;
+import com.uniFun.R;
 
 public class TemplateLineText extends BaseView
 {
@@ -73,7 +75,7 @@ public class TemplateLineText extends BaseView
         title.setLayoutParams(new LayoutParams(width / 5, -1));
         title.setGravity(Gravity.CENTER_VERTICAL);
         title.setPadding(5, 0, 10, 5);
-        title.setText(((TemplateModule) module).title);
+        title.setText("\u3000" + ((TemplateModule) module).title);
 
         View line = new View(mContext);
         line.setLayoutParams(new LayoutParams(1, -1));
@@ -83,7 +85,7 @@ public class TemplateLineText extends BaseView
         final TextView subtitle = new TextView(mContext);
         subtitle.setPadding(10, 0, 10, 0);
         subtitle.setLayoutParams(new LayoutParams(-1, -1));
-        subtitle.setText("\u3000\u3000" + ((TemplateModule) module).subtitle);
+        subtitle.setText(((TemplateModule) module).subtitle);
 
         if (!(((TemplateModule) module).link == null || "".equals(((TemplateModule) module).link)))
         {
@@ -105,44 +107,67 @@ public class TemplateLineText extends BaseView
 
     private void downLoadTip()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getmContext());
-        builder.setTitle("下载");
-        builder.setMessage("即将跳转迅雷下载：" + ((TemplateModule) module).subtitle);
-        builder.setPositiveButton("迅雷下载", new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                try
+        MyDialog dialog = new MyDialog(mContext, R.style.dialog, "正在下载:" + ((TemplateModule) module).subtitle,
+                new MyDialog.OnCloseListener()
                 {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(((TemplateModule) module).subtitle));
-                    intent.addCategory("android.intent.category.DEFAULT");
-                    mContext.startActivity(intent);
-                    download_ok = true;
-                }
-                catch (ActivityNotFoundException e)
-                {
-                    // 下载失败就反馈到数据库中
-                    Toast.makeText(mContext, "下载失败  请检查是否安装迅雷", Toast.LENGTH_SHORT).show();
-                    download_ok = false;
-                    e.printStackTrace();
-                }
-                finally
-                {
-                    if (!download_ok)
+                    @Override
+                    public void onClick(Dialog dialog, boolean confirm)
                     {
-                        String ftp_url = Uri.encode(
-                                ((TemplateModule) module).subtitle == null ? "" : ((TemplateModule) module).subtitle,
-                                "iso-8859-1");
-                        String url = NetAddressManager.root_website + NetAddressManager.downloadfail + "?ftp_url="
-                                + ftp_url + "&appVer=" + VersionUtils.getAppVersionName(mContext);
-                        ApplyNetGson(new Handler(), url);
+                        if (confirm)
+                        {
+                            try
+                            {
+                                Intent intent = new Intent(Intent.ACTION_VIEW,
+                                        Uri.parse(((TemplateModule) module).subtitle));
+                                intent.addCategory("android.intent.category.DEFAULT");
+                                mContext.startActivity(intent);
+                                download_ok = true;
+                            }
+                            catch (ActivityNotFoundException e)
+                            {
+                                // 下载失败就反馈到数据库中
+                                Toast.makeText(mContext, "下载失败  请检查是否安装迅雷", Toast.LENGTH_SHORT).show();
+                                download_ok = false;
+                                e.printStackTrace();
+                            }
+                            finally
+                            {
+                                if (!download_ok)
+                                {
+                                    String ftp_url = Uri.encode(((TemplateModule) module).subtitle == null ? ""
+                                            : ((TemplateModule) module).subtitle, "iso-8859-1");
+                                    String url = NetAddressManager.root_website + NetAddressManager.downloadfail
+                                            + "?ftp_url=" + ftp_url + "&appVer="
+                                            + VersionUtils.getAppVersionName(mContext);
+                                    ApplyNetGson(new Handler(), url);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            copyToClip(((TemplateModule) module).subtitle);
+                        }
                     }
-                }
-            }
-        });
-        builder.setNegativeButton("取消", null);
-        builder.show();
+                }).setTitle("下载");
+        dialog.setNegativeButton("复制链接");
+        dialog.setPositiveButton("迅雷下载");
+        dialog.show();
+    }
+
+    private void copyToClip(String redpay)
+    {
+        if (redpay == null || "".equals(redpay))
+        {
+            return;
+        }
+        ClipData myClip;
+        myClip = ClipData.newPlainText("download", redpay);
+        ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (cm != null)
+        {
+            cm.setPrimaryClip(myClip);
+        }
+        Toast.makeText(mContext, "已经复制:" + redpay + "到粘贴板", Toast.LENGTH_SHORT).show();
     }
 
     private void ApplyNetGson(final Handler handler, final String url)

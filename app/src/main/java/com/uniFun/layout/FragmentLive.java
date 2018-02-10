@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.uniFun.R;
 import com.uniFun.module.ModuleParser;
 import com.uniFun.module.PageModule;
 import com.uniFun.net.NetUtils;
@@ -22,7 +23,6 @@ import com.uniFun.net.VersionUtils;
 import com.uniFun.ui.uihelper.TemplateContainerImpl;
 import com.uniFun.utils.NetAddressManager;
 
-import demo.pplive.com.xspace.R;
 
 public class FragmentLive extends Fragment
 {

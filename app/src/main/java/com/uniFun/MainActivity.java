@@ -1,11 +1,10 @@
 package com.uniFun;
 
 import android.Manifest;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,21 +18,25 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.uniFun.layout.FragmentFilm;
 import com.uniFun.layout.FragmentHome;
 import com.uniFun.layout.FragmentLive;
 import com.uniFun.layout.FragmentUser;
+import com.uniFun.module.ModuleParser;
+import com.uniFun.module.PageModule;
 import com.uniFun.net.NetUtils;
 import com.uniFun.net.VersionUtils;
+import com.uniFun.ui.view.MyDialog;
 import com.uniFun.ui.view.NoScrollViewPage;
 import com.uniFun.utils.NetAddressManager;
+import com.uniFun.utils.SharedPreferencesUtils;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-
-import demo.pplive.com.xspace.R;
 
 public class MainActivity extends BaseActivity
 {
@@ -79,6 +82,25 @@ public class MainActivity extends BaseActivity
         }
     };
 
+    private Handler handlerTip = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            super.handleMessage(msg);
+            switch (msg.what)
+            {
+                case NetUtils.REQUEST_PAGEMODULE_OK:
+                    showTip(msg.obj.toString());
+                    break;
+                case NetUtils.REQUEST_PAGEMODULE_FAIL:
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -91,20 +113,22 @@ public class MainActivity extends BaseActivity
     @Override
     public void onBackPressed()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("退出");
-        builder.setMessage("客官再玩一会嘛，咩^_^");
-        builder.setPositiveButton("残忍拒绝", new DialogInterface.OnClickListener()
+        MyDialog dialog = new MyDialog(context, R.style.dialog, "客官再玩一会嘛,咩..^_^");
+        dialog.setTitle("退出");
+        dialog.setPositiveButton("退出");
+        dialog.setNegativeButton("取消");
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
         {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
+            public void onClick(Dialog dialog, boolean confirm)
             {
-                finish();
+                if (confirm)
+                {
+                    finish();
+                }
             }
         });
-        builder.setNegativeButton("再看看", null);
-        builder.setIcon(getResources().getDrawable(R.drawable.app));
-        builder.show();
+        dialog.show();
     }
 
     private void initView()
@@ -112,7 +136,6 @@ public class MainActivity extends BaseActivity
         mainContainer = findViewById(R.id.main_container);
         navTab = findViewById(R.id.nav_tab);
         fragments = new ArrayList<>();
-
         home = new FragmentHome();
         hot = new FragmentLive();
         find = new FragmentFilm();
@@ -129,7 +152,6 @@ public class MainActivity extends BaseActivity
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
             {
-
             }
 
             @Override
@@ -142,7 +164,6 @@ public class MainActivity extends BaseActivity
             @Override
             public void onPageScrollStateChanged(int state)
             {
-
             }
         });
         navTab.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -172,6 +193,55 @@ public class MainActivity extends BaseActivity
         String url = NetAddressManager.root_website + NetAddressManager.redpay + "?appVer="
                 + VersionUtils.getAppVersionName(context);
         ApplyNetGson(handler, url);
+        // 一周显示一次提示604800000
+        if (Math.abs(System.currentTimeMillis() - SharedPreferencesUtils.getLong(context, "time")) > 604800000)
+        {
+            if (!SharedPreferencesUtils.getBool(context, "showTip"))
+            {
+                String tip_url = NetAddressManager.root_website + NetAddressManager.tip + "?appVer="
+                        + VersionUtils.getAppVersionName(context);
+                ApplyNetGson(handlerTip, tip_url);
+            }
+            else
+            {
+                SharedPreferencesUtils.put(context, "showTip", false);
+            }
+        }
+    }
+
+    private void showTip(String str)
+    {
+        if (str == null || "".equals(str))
+        {
+            return;
+        }
+        PageModule tipModule;
+        tipModule = ModuleParser.getPageModules(str);
+        if (tipModule == null || tipModule.errorCode != 200)
+        {
+            return;
+        }
+        MyDialog dialog = new MyDialog(context, R.style.dialog,
+                tipModule.message == null ? "程序有未知错误" : tipModule.message);
+        dialog.setTitle(tipModule.title == null ? "提示" : tipModule.title);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setPositiveButton("不再提示");
+        dialog.setNegativeButton("取消");
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
+        {
+            @Override
+            public void onClick(Dialog dialog, boolean confirm)
+            {
+                if (confirm)
+                {
+                    Context ctx = new WeakReference<>(context).get();
+                    SharedPreferencesUtils.put(ctx, "showTip", true);
+                    SharedPreferencesUtils.put(context, "time", System.currentTimeMillis());
+                }
+            }
+        });
+        dialog.setContentTxtGravity(Gravity.START);
+        dialog.show();
     }
 
     private void copyToClip(String redpay)
@@ -219,12 +289,12 @@ public class MainActivity extends BaseActivity
     {
         private List<Fragment> fragments;
 
-        public FragmentAdapter(FragmentManager fm)
+        FragmentAdapter(FragmentManager fm)
         {
             super(fm);
         }
 
-        public void setFragments(List<Fragment> fragments)
+        void setFragments(List<Fragment> fragments)
         {
             if (fragments != null && fragments.size() > 0)
             {

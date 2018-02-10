@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
-import demo.pplive.com.xspace.R;
 
 public class PlayerActivity extends BaseActivity
 {
@@ -73,8 +72,6 @@ public class PlayerActivity extends BaseActivity
         {
             videoPlayer.setUp(module.url == null ? "" : module.url, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL,
                     module.title == null ? "" : module.title);
-            // videoPlayer.thumbImageView.setImageURI(Uri.parse(module.img_url
-            // == null ? "" : module.img_url));
             videoPlayer.thumbImageView.setImageResource(R.drawable.movie);
             historyPage = (PageModule) FileSystemUtils.getSerializableFromLocal("history");
             if (historyPage == null)
@@ -93,7 +90,7 @@ public class PlayerActivity extends BaseActivity
             templateModule.templateId = TemplateConstant.template_index_item;
             for (int i = 0; i < historyPage.templateModules.size(); i++)
             {
-                if (templateModule.url.equals(historyPage.templateModules.get(i).url))
+                if (templateModule.url != null && templateModule.url.equals(historyPage.templateModules.get(i).url))
                 {
                     historyPage.templateModules.remove(i);
                 }

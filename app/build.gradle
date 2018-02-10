@@ -29,6 +29,7 @@ repositories {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -40,17 +41,17 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     implementation project(':library')
     // 其他依赖
-    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.facebook.fresco:fresco:1.3.0'
     // 在 API < 14 上的机器支持 WebP 时，需要添加
     compile 'com.facebook.fresco:animated-base-support:0.12.0'
     // 支持 GIF 动图，需要添加
-    compile 'com.facebook.fresco:animated-gif:0.12.0'
+    compile 'com.facebook.fresco:animated-gif:1.3.0'
     // 支持 WebP （静态图+动图），需要添加
     compile 'com.facebook.fresco:animated-webp:0.12.0'
     compile 'com.facebook.fresco:webpsupport:0.12.0'
     // 仅支持 WebP 静态图，需要添加
     compile 'com.facebook.fresco:webpsupport:0.12.0'
-    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
     implementation files('libs/bugly_crash_release.jar')
     compile 'cn.jzvd:jiaozivideoplayer:6.2.7'

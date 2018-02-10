@@ -15,7 +15,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dip"
+                android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -35,7 +35,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="20dip"
+                    android:layout_marginBottom="5dip"
                     android:layout_marginTop="20dip"
                     android:gravity="center">
 
@@ -67,7 +67,8 @@
                     <View
                         android:layout_width="1dip"
                         android:layout_height="match_parent"
-                        android:background="#7f000000" />
+                        android:layout_margin="10dip"
+                        android:background="@color/colorAccent" />
 
                     <RelativeLayout
                         android:layout_width="0dip"
@@ -97,7 +98,8 @@
                     <View
                         android:layout_width="1dip"
                         android:layout_height="match_parent"
-                        android:background="#7f000000" />
+                        android:layout_margin="10dip"
+                        android:background="@color/colorAccent" />
 
                     <RelativeLayout
                         android:id="@+id/email"
@@ -122,7 +124,6 @@
                             android:gravity="center"
                             android:text="991167006@qq.com"
                             android:textSize="@dimen/dt_text_size_small" />
-
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -152,7 +153,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
             <LinearLayout
                 android:id="@+id/local"
@@ -179,7 +180,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
             <LinearLayout
                 android:id="@+id/scource"
@@ -206,7 +207,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
 
             <LinearLayout
@@ -234,7 +235,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
             <LinearLayout
                 android:id="@+id/updata_software"
@@ -272,7 +273,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
             <LinearLayout
                 android:id="@+id/recommend"
@@ -299,7 +300,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
             <LinearLayout
                 android:id="@+id/setting"
@@ -326,7 +327,7 @@
                 android:layout_height="0.5dip"
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="20dip"
-                android:background="#7f000000" />
+                android:background="@color/colorAccent" />
 
 
         </LinearLayout>
