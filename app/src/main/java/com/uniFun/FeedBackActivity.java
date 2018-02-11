@@ -36,7 +36,7 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
 
     private EditText editConnect;
 
-    private EditText editRecoment;
+    private EditText editRecommend;
 
     private ProgressBar loading;
 
@@ -77,7 +77,7 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
         back = findViewById(R.id.img_back);
         submit = findViewById(R.id.submit);
         editConnect = findViewById(R.id.editConnect);
-        editRecoment = findViewById(R.id.editRecoment);
+        editRecommend = findViewById(R.id.editRecoment);
         loading = findViewById(R.id.loading);
         back.setOnClickListener(this);
         submit.setOnClickListener(this);
@@ -162,7 +162,7 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
 
     private void submit()
     {
-        String rec = Uri.encode(editRecoment.getText().toString(), "iso-8859-1");
+        String rec = Uri.encode(editRecommend.getText().toString(), "iso-8859-1");
         String user = Uri.encode(editConnect.getText().toString(), "iso-8859-1");
         if ("".equals(rec))
         {

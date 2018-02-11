@@ -1,7 +1,6 @@
 package com.uniFun.ui.uihelper;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -126,12 +125,10 @@ public class TemplateContainerImpl
             {
                 view = TemplateManager.findViewById(new WeakReference<>(context).get(),
                         pageModule.templateModules.get(i).templateId);
-                Log.d("jixiongxu","pullToRefresh--"+"创建");
             }
             if (view instanceof BaseView)
             {
                 ((BaseView) view).setData(pageModule.templateModules.get(i));
-                Log.d("jixiongxu","pullToRefresh--"+"复用");
             }
             view.invalidate();
             return view;

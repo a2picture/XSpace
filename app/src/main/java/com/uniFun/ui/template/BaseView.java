@@ -14,8 +14,6 @@ public abstract class BaseView extends LinearLayout
 
     protected Context mContext;
 
-    protected boolean hasAddView = false;
-
     protected BaseModule module;
 
     public BaseView(Context context)
