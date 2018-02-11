@@ -1,6 +1,7 @@
 package com.uniFun.ui.uihelper;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -73,13 +74,19 @@ public class TemplateContainerImpl
         }
 
         @Override
-        public int getItemViewType(int position) {
-            return super.getItemViewType(position);
+        public int getItemViewType(int position)
+        {
+            if (pageModule == null || pageModule.templateModules == null || pageModule.templateModules.size() <= 0)
+            {
+                return 1;
+            }
+            return TemplateManager.getViewType(pageModule.templateModules.get(position).templateId);
         }
 
         @Override
-        public int getViewTypeCount() {
-            return super.getViewTypeCount();
+        public int getViewTypeCount()
+        {
+            return 10;
         }
 
         @Override
@@ -115,14 +122,18 @@ public class TemplateContainerImpl
             {
                 return null;
             }
-            BaseView template = TemplateManager.findViewById(new WeakReference<>(context).get(),
-                    pageModule.templateModules.get(i).templateId);
-            if (template == null)
+            if (view == null)
             {
-                return null;
+                view = TemplateManager.findViewById(new WeakReference<>(context).get(),
+                        pageModule.templateModules.get(i).templateId);
+                Log.d("jixiongxu","pullToRefresh--"+"创建");
             }
-            template.setData(pageModule.templateModules.get(i));
-            view = template;
+            if (view instanceof BaseView)
+            {
+                ((BaseView) view).setData(pageModule.templateModules.get(i));
+                Log.d("jixiongxu","pullToRefresh--"+"复用");
+            }
+            view.invalidate();
             return view;
         }
     }

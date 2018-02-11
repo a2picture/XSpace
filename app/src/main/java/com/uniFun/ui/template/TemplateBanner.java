@@ -11,7 +11,6 @@ import com.uniFun.R;
 import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 
-
 public class TemplateBanner extends BaseView
 {
     public static final String Template_ID = "template_banner";
@@ -42,6 +41,7 @@ public class TemplateBanner extends BaseView
         icon.getHierarchy().setRoundingParams(roundingParams);
         title = mRootView.findViewById(R.id.title);
         more = mRootView.findViewById(R.id.more);
+        addTemplateView();
     }
 
     @Override
@@ -74,7 +74,7 @@ public class TemplateBanner extends BaseView
                 onItemClick(module);
             }
         });
-        addTemplateView();
+        invalidate();
     }
 
     @Override
@@ -83,7 +83,7 @@ public class TemplateBanner extends BaseView
         LayoutParams lp = new LayoutParams(-1, (int) (mContext.getResources().getDisplayMetrics().density * 40));
         mRootView.setLayoutParams(lp);
         addView(mRootView);
-        invalidate();
+
     }
 
     @Override

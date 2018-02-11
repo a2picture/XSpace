@@ -11,13 +11,16 @@ import com.uniFun.R;
 import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 
-
 /**
- * Created by jixiongxu on 2018/1/31.
+ * <一句话功能简述> <功能详细描述>
+ *
+ * @author jixiongxu
+ * @version [版本号, 2018/2/11]
+ * @see [相关类/方法]
+ * @since [产品/模块版本]
  */
 
-public class TemplateFilmDisco extends BaseView
-{
+public class TemplateFilmDisco extends BaseView {
 
     public static final String Template_ID = "template_film_disco";
 
@@ -33,51 +36,37 @@ public class TemplateFilmDisco extends BaseView
 
     private TextView subTitle;
 
-    public TemplateFilmDisco(Context context)
-    {
+    public TemplateFilmDisco(Context context) {
         super(context);
         this.context = context;
         initView();
     }
 
-    private void initView()
-    {
+    private void initView() {
         this.setOrientation(VERTICAL);
-
         this.setLayoutParams(new LayoutParams(-1, -2));
-
         this.setPadding(0, 0, 0, 10);
-
         mRootView = View.inflate(mContext, R.layout.template_film, null);
-
         poster = mRootView.findViewById(R.id.poster);
-
         icon = mRootView.findViewById(R.id.icon);
-
         title = mRootView.findViewById(R.id.title);
-
         subTitle = mRootView.findViewById(R.id.subtitle);
-
         RoundingParams roundingParams = RoundingParams.fromCornersRadius(5f);
         roundingParams.setRoundAsCircle(true);
         icon.getHierarchy().setRoundingParams(roundingParams);
         poster.getHierarchy().setRoundingParams(RoundingParams.fromCornersRadius(20f));
-
-        this.setOnClickListener(new OnClickListener()
-        {
+        this.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 onItemClick(module);
             }
         });
+        addTemplateView();
     }
 
     @Override
-    public void setData(BaseModule module)
-    {
-        if (module == null)
-        {
+    public void setData(BaseModule module) {
+        if (module == null) {
             return;
         }
         this.module = module;
@@ -85,34 +74,25 @@ public class TemplateFilmDisco extends BaseView
     }
 
     @Override
-    public void fillData(BaseModule module)
-    {
-        if (!(module instanceof TemplateModule))
-        {
+    public void fillData(BaseModule module) {
+        if (!(module instanceof TemplateModule)) {
             return;
         }
-
         title.setText(((TemplateModule) module).title == null ? "" : ((TemplateModule) module).title);
-
         subTitle.setText(((TemplateModule) module).subtitle == null ? "" : ((TemplateModule) module).subtitle);
-
         poster.setImageURI(
                 Uri.parse(((TemplateModule) module).img_url == null ? "" : ((TemplateModule) module).img_url));
-
         icon.setImageURI(Uri.parse(((TemplateModule) module).icon == null ? "" : ((TemplateModule) module).icon));
-
-        addTemplateView();
+        invalidate();
     }
 
     @Override
-    public void addTemplateView()
-    {
+    public void addTemplateView() {
         addView(mRootView);
     }
 
     @Override
-    public void reFresh()
-    {
+    public void reFresh() {
 
     }
 }

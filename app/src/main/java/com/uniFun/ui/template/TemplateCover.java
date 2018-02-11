@@ -35,6 +35,12 @@ public class TemplateCover extends BaseView
         this.setGravity(Gravity.CENTER);
         this.setPadding(0, 0, 0, 10);
         this.setLayoutParams(new LayoutParams(-1, -2));
+        simpleDraweeView = new SimpleDraweeView(mContext);
+        title = new TextView(mContext);
+
+        simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
+        simpleDraweeView.setBackground(mContext.getResources().getDrawable(R.drawable.loading));
+        addTemplateView();
     }
 
     @Override
@@ -55,16 +61,6 @@ public class TemplateCover extends BaseView
         {
             return;
         }
-
-        if (simpleDraweeView == null)
-        {
-            simpleDraweeView = new SimpleDraweeView(mContext);
-        }
-        if (title == null)
-        {
-            title = new TextView(mContext);
-        }
-        int width = DisplayUtil.screenWidthPx(mContext);
         this.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -77,9 +73,8 @@ public class TemplateCover extends BaseView
         {
             scale = ((TemplateModule) module).scale;
         }
+        int width = DisplayUtil.screenWidthPx(mContext);
         simpleDraweeView.setLayoutParams(new LayoutParams(width, (int) (width * scale)));
-        simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
-        simpleDraweeView.setBackground(mContext.getResources().getDrawable(R.drawable.loading));
         if ("".equals(((TemplateModule) module).subtitle))
         {
             title.setVisibility(GONE);
@@ -91,7 +86,7 @@ public class TemplateCover extends BaseView
             simpleDraweeView.setImageURI(
                     Uri.parse("".equals(((TemplateModule) module).img_url) ? "" : ((TemplateModule) module).img_url));
         }
-        addTemplateView();
+        this.invalidate();
     }
 
     @Override
@@ -99,7 +94,6 @@ public class TemplateCover extends BaseView
     {
         addView(simpleDraweeView);
         addView(title);
-        invalidate();
     }
 
     @Override

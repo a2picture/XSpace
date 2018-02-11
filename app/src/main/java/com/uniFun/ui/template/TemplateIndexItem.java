@@ -52,6 +52,7 @@ public class TemplateIndexItem extends BaseView
         chapterImg = mRootView.findViewById(R.id.chapter_img);
         chapterTitle = mRootView.findViewById(R.id.chapter_title);
         chapterDesc = mRootView.findViewById(R.id.chapter_desc);
+        addTemplateView();
     }
 
     @Override
@@ -90,7 +91,7 @@ public class TemplateIndexItem extends BaseView
             MyAsyncTask task = new MyAsyncTask();
             task.execute(((TemplateModule) module).url);
         }
-        addTemplateView();
+        invalidate();
     }
 
     @Override
@@ -99,7 +100,6 @@ public class TemplateIndexItem extends BaseView
         LayoutParams lp = new LayoutParams(-1, -2);
         mRootView.setLayoutParams(lp);
         addView(mRootView);
-        invalidate();
     }
 
     @Override

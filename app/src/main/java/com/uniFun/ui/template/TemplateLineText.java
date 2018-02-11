@@ -1,5 +1,6 @@
 package com.uniFun.ui.template;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.uniFun.R;
 import com.uniFun.module.BaseModule;
 import com.uniFun.module.TemplateModule;
 import com.uniFun.net.NetUtils;
@@ -23,8 +25,6 @@ import com.uniFun.ui.view.MyDialog;
 import com.uniFun.utils.DisplayUtil;
 import com.uniFun.utils.NetAddressManager;
 
-import com.uniFun.R;
-
 public class TemplateLineText extends BaseView
 {
     public static final String TAG = "template_line_text";
@@ -32,6 +32,12 @@ public class TemplateLineText extends BaseView
     private boolean download_ok = true;
 
     private int width;
+
+    private TextView subtitle;
+
+    private TextView title;
+
+    private View line;
 
     private LinearLayout mRootView;
 
@@ -50,6 +56,25 @@ public class TemplateLineText extends BaseView
         mRootView.setOrientation(HORIZONTAL);
         mRootView.setLayoutParams(new LayoutParams(-1, -2));
         this.setOnClickListener(null);
+
+        title = new TextView(mContext);
+        title.setSingleLine(true);
+        title.setLayoutParams(new LayoutParams(width / 5, -1));
+        title.setGravity(Gravity.CENTER_VERTICAL);
+        title.setPadding(5, 0, 10, 5);
+
+        subtitle = new TextView(mContext);
+        subtitle.setPadding(10, 0, 10, 0);
+        subtitle.setLayoutParams(new LayoutParams(-1, -1));
+
+        line = new View(mContext);
+        line.setLayoutParams(new LayoutParams(1, -1));
+        line.setBackgroundColor(Color.GREEN);
+        line.setPadding(10, 0, 10, 0);
+        mRootView.addView(title);
+        mRootView.addView(subtitle);
+        mRootView.addView(line, 1);
+        addTemplateView();
     }
 
     @Override
@@ -63,6 +88,7 @@ public class TemplateLineText extends BaseView
         fillData(module);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void fillData(final BaseModule module)
     {
@@ -70,23 +96,8 @@ public class TemplateLineText extends BaseView
         {
             return;
         }
-        TextView title = new TextView(mContext);
-        title.setSingleLine(true);
-        title.setLayoutParams(new LayoutParams(width / 5, -1));
-        title.setGravity(Gravity.CENTER_VERTICAL);
-        title.setPadding(5, 0, 10, 5);
         title.setText("\u3000" + ((TemplateModule) module).title);
-
-        View line = new View(mContext);
-        line.setLayoutParams(new LayoutParams(1, -1));
-        line.setBackgroundColor(Color.GREEN);
-        line.setPadding(10, 0, 10, 0);
-
-        final TextView subtitle = new TextView(mContext);
-        subtitle.setPadding(10, 0, 10, 0);
-        subtitle.setLayoutParams(new LayoutParams(-1, -1));
         subtitle.setText(((TemplateModule) module).subtitle);
-
         if (!(((TemplateModule) module).link == null || "".equals(((TemplateModule) module).link)))
         {
             subtitle.setTextColor(getResources().getColor(R.color.colorAccent));
@@ -99,10 +110,12 @@ public class TemplateLineText extends BaseView
                 }
             });
         }
-        mRootView.addView(title);
-        mRootView.addView(subtitle);
-        mRootView.addView(line, 1);
-        addTemplateView();
+        else
+        {
+            subtitle.setTextColor(getResources().getColor(R.color.black_alpha_5));
+            subtitle.setOnClickListener(null);
+        }
+        this.invalidate();
     }
 
     private void downLoadTip()

@@ -26,7 +26,6 @@ public class TemplateEndBanner extends BaseView
         this.setGravity(Gravity.CENTER);
         this.setLayoutParams(new LayoutParams(-1, -2));
         this.setPadding(0, 0, 0, 10);
-
         this.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -35,6 +34,11 @@ public class TemplateEndBanner extends BaseView
                 onItemClick(module);
             }
         });
+        endTex = new TextView(mContext);
+        LayoutParams lp = new LayoutParams(-2, -2);
+        endTex.setLayoutParams(lp);
+        endTex.setPadding(0, 20, 0, 20);
+        addTemplateView();
     }
 
     @Override
@@ -55,27 +59,19 @@ public class TemplateEndBanner extends BaseView
         {
             return;
         }
-        if (endTex == null)
-        {
-            endTex = new TextView(mContext);
-        }
         endTex.setText(((TemplateModule) module).description);
-        addTemplateView();
+
+        invalidate();
     }
 
     @Override
     public void addTemplateView()
     {
-        LayoutParams lp = new LayoutParams(-2, -2);
-        endTex.setLayoutParams(lp);
-        endTex.setPadding(0, 20, 0, 20);
         addView(endTex);
-        invalidate();
     }
 
     @Override
     public void reFresh()
     {
-
     }
 }

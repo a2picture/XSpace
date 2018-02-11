@@ -25,7 +25,6 @@ import com.uniFun.ui.uihelper.TemplateConstant;
 import com.uniFun.ui.uihelper.TemplateContainerImpl;
 import com.uniFun.utils.NetAddressManager;
 
-
 public class FragmentFilm extends Fragment
 {
     private PullToRefreshListView listView;
@@ -146,20 +145,26 @@ public class FragmentFilm extends Fragment
         else
         {
             PageModule temp = ModuleParser.getPageModules(gson);
-            if (temp.templateModules != null && temp.templateModules.size() > 0)
+            if (temp.templateModules != null)
             {
                 pageModule.templateModules.addAll(temp.templateModules);
+                return;
             }
-            else
+            if (pageModule.templateModules.size() == 0)
             {
-                if (!pageModule.templateModules.get(pageModule.templateModules.size() - 1).templateId.equals(
-                        TemplateConstant.template_end_banner))
-                {
-                    TemplateModule end = new TemplateModule();
-                    end.templateId = TemplateConstant.template_end_banner;
-                    end.description = "^_^没有更多了*_*";
-                    pageModule.templateModules.add(end);
-                }
+                TemplateModule end = new TemplateModule();
+                end.templateId = TemplateConstant.template_end_banner;
+                end.description = "^_^没有更多了*_*";
+                pageModule.templateModules.add(end);
+                return;
+            }
+            if (!pageModule.templateModules.get(pageModule.templateModules.size() - 1).templateId.equals(
+                    TemplateConstant.template_end_banner))
+            {
+                TemplateModule end = new TemplateModule();
+                end.templateId = TemplateConstant.template_end_banner;
+                end.description = "^_^没有更多了*_*";
+                pageModule.templateModules.add(end);
             }
         }
         if (pageModule == null)

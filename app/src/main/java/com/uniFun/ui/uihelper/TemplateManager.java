@@ -16,6 +16,55 @@ import com.uniFun.ui.template.TemplateSearch;
 
 public class TemplateManager
 {
+    public static int getViewType(String tempId)
+    {
+        if (tempId == null || tempId.equals(""))
+        {
+            return -1;
+        }
+        if (tempId.equals(TemplateConstant.template_index_item))
+        {
+            return 0;
+        }
+        else if (tempId.equals(TemplateConstant.template_banner))
+        {
+            return 1;
+        }
+        else if (tempId.equals(TemplateConstant.template_end_banner))
+        {
+            return 2;
+        }
+        else if (tempId.equals(TemplateConstant.template_cover))
+        {
+            return 3;
+        }
+        else if (tempId.equals(TemplateConstant.template_grid))
+        {
+            return 4;
+        }
+        else if (tempId.equals(TemplateConstant.template_grid_2))
+        {
+            return 5;
+        }
+        else if (tempId.equals(TemplateConstant.template_grid_3))
+        {
+            return 6;
+        }
+        else if (tempId.equals(TemplateConstant.template_line_text))
+        {
+            return 7;
+        }
+        else if (tempId.equals(TemplateConstant.template_search))
+        {
+            return 8;
+        }
+        else if (tempId.equals(TemplateConstant.template_film_disco))
+        {
+            return 9;
+        }
+        return -2;
+    }
+
     public static BaseView findViewById(Context context, String tempId)
     {
         if (tempId == null || tempId.equals(""))

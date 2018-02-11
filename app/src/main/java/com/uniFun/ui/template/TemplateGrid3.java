@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 /**
  * <一句话功能简述> <图片轮播>
  *
@@ -54,7 +53,7 @@ public class TemplateGrid3 extends BaseView
 
     private int width;
 
-    private Timer timer = new Timer();
+    private Timer timer;
 
     public TemplateGrid3(Context context)
     {
@@ -74,6 +73,7 @@ public class TemplateGrid3 extends BaseView
     @Override
     public void setData(BaseModule module)
     {
+        mRootView.removeAllViews();
         if (module == null || !(module instanceof TemplateModule))
         {
             return;
@@ -99,7 +99,6 @@ public class TemplateGrid3 extends BaseView
     @Override
     public void fillData(BaseModule module)
     {
-
         viewPager = new ViewPager(mContext);
         viewPager.setLayoutParams(new LayoutParams(-1, (int) (width * W21_H9)));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
@@ -153,6 +152,7 @@ public class TemplateGrid3 extends BaseView
         {
             return;
         }
+        timer = new Timer();
         TimerTask task = new TimerTask()
         {
             @Override
@@ -193,6 +193,7 @@ public class TemplateGrid3 extends BaseView
     @Override
     public void addTemplateView()
     {
+        this.removeAllViews();
         addView(mRootView);
     }
 

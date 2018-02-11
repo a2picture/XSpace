@@ -51,6 +51,7 @@ public class TemplateGrid extends BaseView
     @Override
     public void setData(BaseModule module)
     {
+        mRootView.removeAllViews();
         if (module == null)
         {
             return;
@@ -142,6 +143,7 @@ public class TemplateGrid extends BaseView
     @Override
     public void addTemplateView()
     {
+        this.removeAllViews();
         addView(mRootView);
     }
 

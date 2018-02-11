@@ -49,6 +49,7 @@ public class TemplateSearch extends BaseView
                 return false;
             }
         });
+        addTemplateView();
     }
 
     @Override
@@ -67,10 +68,9 @@ public class TemplateSearch extends BaseView
     {
         if (module instanceof TemplateModule)
         {
-            editText.setHint("\u3000\u3000"
-                    + (((TemplateModule) module).title == null ? "搜索" : ((TemplateModule) module).title));
+            editText.setHint((((TemplateModule) module).title == null ? "搜索" : ((TemplateModule) module).title));
         }
-        addTemplateView();
+        invalidate();
     }
 
     @Override
@@ -83,5 +83,4 @@ public class TemplateSearch extends BaseView
     public void reFresh()
     {
     }
-
 }
