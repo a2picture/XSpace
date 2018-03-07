@@ -49,7 +49,7 @@ public class TemplateGrid3 extends BaseView
 
     private TemplateModule newModule;
 
-    private int currentViewPagePositon = 0;
+    private int currentViewPagePosition = 0;
 
     private int width;
 
@@ -112,7 +112,7 @@ public class TemplateGrid3 extends BaseView
             @Override
             public void onPageSelected(int position)
             {
-                currentViewPagePositon = position;
+                currentViewPagePosition = position;
             }
 
             @Override
@@ -166,7 +166,7 @@ public class TemplateGrid3 extends BaseView
                         for (int i = 0; i < dotContainer.getChildCount(); i++)
                         {
                             ImageView dot = (ImageView) dotContainer.getChildAt(i);
-                            if (i == currentViewPagePositon % adapter.getCount())
+                            if (i == currentViewPagePosition % adapter.getCount())
                             {
                                 dot.setImageResource(R.drawable.dot_normal);
                             }
@@ -175,7 +175,7 @@ public class TemplateGrid3 extends BaseView
                                 dot.setImageResource(R.drawable.dot_light);
                             }
                         }
-                        viewPager.setCurrentItem(currentViewPagePositon++ % adapter.getCount());
+                        viewPager.setCurrentItem(currentViewPagePosition++ % adapter.getCount());
                     }
                 });
             }

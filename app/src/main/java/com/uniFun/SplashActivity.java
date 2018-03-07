@@ -1,15 +1,16 @@
 package com.uniFun;
 
-import android.content.Intent;
-import android.os.Build;
+import android.Manifest;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import com.uniFun.utils.PermissionHelper;
+
+import java.util.List;
 
 import abc.abc.abc.AdManager;
 import abc.abc.abc.nm.cm.ErrorCode;
@@ -17,6 +18,8 @@ import abc.abc.abc.nm.sp.SplashViewSettings;
 import abc.abc.abc.nm.sp.SpotListener;
 import abc.abc.abc.nm.sp.SpotManager;
 import abc.abc.abc.nm.sp.SpotRequestListener;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * 开屏广告演示窗口
@@ -24,13 +27,15 @@ import abc.abc.abc.nm.sp.SpotRequestListener;
  * @author Alian Lee
  * @since 2016-11-25
  */
-public class SplashActivity extends BaseYoumiActivity
-{
-    private PermissionHelper mPermissionHelper;
+public class SplashActivity extends BaseYoumiActivity implements EasyPermissions.PermissionCallbacks {
+
+    private static final String[] LOCATION_AND_CONTACTS =
+            {Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+
+    private static final int READ_PHONE_STATE = 123;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         // 设置全屏
@@ -38,60 +43,20 @@ public class SplashActivity extends BaseYoumiActivity
         // 移除标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
-
-        // 当系统为6.0以上时，需要申请权限
-        mPermissionHelper = new PermissionHelper(this);
-        mPermissionHelper.setOnApplyPermissionListener(new PermissionHelper.OnApplyPermissionListener()
-        {
-            @Override
-            public void onAfterApplyAllPermission()
-            {
-                Log.i(TAG, "All of requested permissions has been granted, so run app logic.");
-                runApp();
-            }
-        });
-        if (Build.VERSION.SDK_INT < 23)
-        {
-            // 如果系统版本低于23，直接跑应用的逻辑
-            Log.d(TAG, "The api level of system is lower than 23, so run app logic directly.");
-            runApp();
-        }
-        else
-        {
-            // 如果权限全部申请了，那就直接跑应用逻辑
-            if (mPermissionHelper.isAllRequestedPermissionGranted())
-            {
-                Log.d(TAG, "All of requested permissions has been granted, so run app logic directly.");
-                runApp();
-            }
-            else
-            {
-                // 如果还有权限为申请，而且系统版本大于23，执行申请权限逻辑
-                Log.i(TAG, "Some of requested permissions hasn't been granted, so apply permissions first.");
-                mPermissionHelper.applyPermissions();
-            }
-        }
+        locationAndContactsTask();
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        mPermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        mPermissionHelper.onActivityResult(requestCode, resultCode, data);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
     /**
      * 跑应用的逻辑
      */
-    private void runApp()
-    {
+    private void runApp() {
         // 初始化SDK
         // appId = 5b24f43745cdcfc6
         // secret = 4409d16c1039e086
@@ -100,37 +65,51 @@ public class SplashActivity extends BaseYoumiActivity
         setupSplashAd(); // 如果需要首次展示开屏，请注释掉本句代码
     }
 
+    private boolean hasLocationAndContactsPermissions() {
+        return EasyPermissions.hasPermissions(this, LOCATION_AND_CONTACTS);
+    }
+
+    @AfterPermissionGranted(READ_PHONE_STATE)
+    public void locationAndContactsTask() {
+        if (hasLocationAndContactsPermissions()) {
+            // Have permissions, do the thing!
+            Toast.makeText(this, "TODO: Location and Contacts things", Toast.LENGTH_LONG).show();
+        } else {
+            // Ask for both permissions
+            EasyPermissions.requestPermissions(
+                    this,
+                    "您的程序尚未打开部分权限，为确保程序的正常运行请打开以下权限！",
+                    READ_PHONE_STATE,
+                    LOCATION_AND_CONTACTS);
+        }
+    }
+
     /**
      * 预加载广告
      */
-    private void preloadAd()
-    {
+    private void preloadAd() {
         // 注意：不必每次展示插播广告前都请求，只需在应用启动时请求一次
-        SpotManager.getInstance(mContext).requestSpot(new SpotRequestListener()
-        {
+        SpotManager.getInstance(mContext).requestSpot(new SpotRequestListener() {
             @Override
-            public void onRequestSuccess()
-            {
+            public void onRequestSuccess() {
                 logInfo("请求插播广告成功");
                 // // 应用安装后首次展示开屏会因为本地没有数据而跳过
                 // // 如果开发者需要在首次也能展示开屏，可以在请求广告成功之前展示应用的logo，请求成功后再加载开屏
-                // setupSplashAd();
+//                setupSplashAd();
             }
 
             @Override
-            public void onRequestFailed(int errorCode)
-            {
+            public void onRequestFailed(int errorCode) {
                 logError("请求插播广告失败，errorCode: %s", errorCode);
-                switch (errorCode)
-                {
+                switch (errorCode) {
                     case ErrorCode.NON_NETWORK:
-                        showShortToast("网络异常");
+//                        showShortToast("网络异常");
                         break;
                     case ErrorCode.NON_AD:
-                        showShortToast("暂无视频广告");
+//                        showShortToast("暂无视频广告");
                         break;
                     default:
-                        showShortToast("请稍后再试");
+//                        showShortToast("请稍后再试");
                         break;
                 }
             }
@@ -140,10 +119,9 @@ public class SplashActivity extends BaseYoumiActivity
     /**
      * 设置开屏广告
      */
-    private void setupSplashAd()
-    {
-        // 创建开屏容器
-        final RelativeLayout splashLayout = (RelativeLayout) findViewById(R.id.rl_splash);
+    private void setupSplashAd() {
+        // 创建开屏容器2
+        final RelativeLayout splashLayout = findViewById(R.id.rl_splash);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         params.addRule(RelativeLayout.ABOVE, R.id.view_divider);
@@ -158,21 +136,17 @@ public class SplashActivity extends BaseYoumiActivity
         splashViewSettings.setSplashViewContainer(splashLayout);
 
         // 展示开屏广告
-        SpotManager.getInstance(mContext).showSplash(mContext, splashViewSettings, new SpotListener()
-        {
+        SpotManager.getInstance(mContext).showSplash(mContext, splashViewSettings, new SpotListener() {
 
             @Override
-            public void onShowSuccess()
-            {
+            public void onShowSuccess() {
                 logInfo("开屏展示成功");
             }
 
             @Override
-            public void onShowFailed(int errorCode)
-            {
+            public void onShowFailed(int errorCode) {
                 logError("开屏展示失败");
-                switch (errorCode)
-                {
+                switch (errorCode) {
                     case ErrorCode.NON_NETWORK:
                         logError("网络异常");
                         break;
@@ -195,14 +169,12 @@ public class SplashActivity extends BaseYoumiActivity
             }
 
             @Override
-            public void onSpotClosed()
-            {
+            public void onSpotClosed() {
                 logDebug("开屏被关闭");
             }
 
             @Override
-            public void onSpotClicked(boolean isWebPage)
-            {
+            public void onSpotClicked(boolean isWebPage) {
                 logDebug("开屏被点击");
                 logInfo("是否是网页广告？%s", isWebPage ? "是" : "不是");
             }
@@ -210,10 +182,19 @@ public class SplashActivity extends BaseYoumiActivity
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
+
         // 开屏展示界面的 onDestroy() 回调方法中调用
         SpotManager.getInstance(mContext).onDestroy();
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        runApp();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
     }
 }
