@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
+import com.uniFun.utils.AppInfoUtils;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class SplashActivity extends BaseYoumiActivity implements EasyPermissions.PermissionCallbacks {
 
     private static final String[] LOCATION_AND_CONTACTS =
-            {Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+            {Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
 
     private static final int READ_PHONE_STATE = 123;
 
@@ -38,6 +38,8 @@ public class SplashActivity extends BaseYoumiActivity implements EasyPermissions
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+        AppInfoUtils.getAppPackageName(this);
+
         // 设置全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // 移除标题栏
@@ -73,7 +75,8 @@ public class SplashActivity extends BaseYoumiActivity implements EasyPermissions
     public void locationAndContactsTask() {
         if (hasLocationAndContactsPermissions()) {
             // Have permissions, do the thing!
-            Toast.makeText(this, "TODO: Location and Contacts things", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "TODO: Location and Contacts things", Toast.LENGTH_LONG).show();
+            runApp();
         } else {
             // Ask for both permissions
             EasyPermissions.requestPermissions(
@@ -196,5 +199,8 @@ public class SplashActivity extends BaseYoumiActivity implements EasyPermissions
 
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (perms.size() > 0) {
+            finish();
+        }
     }
 }

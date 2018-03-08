@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.uniFun.module.TemplateModule;
 import com.uniFun.utils.DisplayUtil;
 
-
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity
 {
