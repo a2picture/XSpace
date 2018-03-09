@@ -1,26 +1,21 @@
 package com.uniFun;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.uniFun.layout.FragmentFilm;
@@ -40,7 +35,8 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity
+{
     private static String TAG = "MainActivity";
 
     private static String[] PERMISSIONS_STORAGE = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -66,18 +62,22 @@ public class MainActivity extends BaseActivity {
 
     private List<Fragment> fragments;
 
-    static class MyTaskHandler extends Handler {
+    static class MyTaskHandler extends Handler
+    {
 
         private WeakReference<MainActivity> refActivity;
 
-        MyTaskHandler(MainActivity act) {
+        MyTaskHandler(MainActivity act)
+        {
             refActivity = new WeakReference<>(act);
         }
 
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg)
+        {
             super.handleMessage(msg);
-            switch (msg.what) {
+            switch (msg.what)
+            {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
                     refActivity.get().copyToClip(msg.obj.toString());
                     break;
@@ -91,19 +91,22 @@ public class MainActivity extends BaseActivity {
 
     private Handler handler = new MyTaskHandler(this);
 
-
-    static class MyTipHandler extends Handler {
+    static class MyTipHandler extends Handler
+    {
 
         WeakReference<MainActivity> refActivity;
 
-        MyTipHandler(MainActivity act) {
+        MyTipHandler(MainActivity act)
+        {
             refActivity = new WeakReference<>(act);
         }
 
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg)
+        {
             super.handleMessage(msg);
-            switch (msg.what) {
+            switch (msg.what)
+            {
                 case NetUtils.REQUEST_PAGEMODULE_OK:
                     refActivity.get().showTip(msg.obj.toString());
                     break;
@@ -116,41 +119,28 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy()
+    {
         super.onDestroy();
-        if (dialog != null) {
+        if (dialog != null)
+        {
             dialog.dismiss();
         }
     }
 
     private Handler handlerTip = new MyTipHandler(this);
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
     }
 
-    @Override
-    public void onBackPressed() {
-        MyDialog dialog = new MyDialog(context, R.style.dialog, "客官再玩一会嘛,咩..^_^");
-        dialog.setTitle("退出");
-        dialog.setPositiveButton("退出");
-        dialog.setNegativeButton("取消");
-        dialog.setOnCloseListener(new MyDialog.OnCloseListener() {
-            @Override
-            public void onClick(Dialog dialog, boolean confirm) {
-                if (confirm) {
-                    finish();
-                }
-            }
-        });
-        dialog.show();
-    }
-
-    private void initView() {
+    private void initView()
+    {
         mainContainer = findViewById(R.id.main_container);
         navTab = findViewById(R.id.nav_tab);
         fragments = new ArrayList<>();
@@ -165,25 +155,32 @@ public class MainActivity extends BaseActivity {
         mAdapter = new FragmentAdapter(getSupportFragmentManager());
         mAdapter.setFragments(fragments);
         mainContainer.setAdapter(mAdapter);
-        mainContainer.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mainContainer.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
             }
 
             @Override
-            public void onPageSelected(int position) {
+            public void onPageSelected(int position)
+            {
                 int[] resId = {R.id.nav_home, R.id.nav_hot, R.id.nav_find, R.id.nav_user};
                 navTab.setSelectedItemId(resId[position]);
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onPageScrollStateChanged(int state)
+            {
             }
         });
-        navTab.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        navTab.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+        {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                switch (item.getItemId())
+                {
                     case R.id.nav_home:
                         mainContainer.setCurrentItem(0);
                         break;
@@ -205,36 +202,45 @@ public class MainActivity extends BaseActivity {
                 + VersionUtils.getAppVersionName(context);
         ApplyNetGson(handler, url);
         // 一周显示一次提示604800000
-        if (Math.abs(System.currentTimeMillis() - SharedPreferencesUtils.getLong(context, "time")) > 604800000) {
-            if (!SharedPreferencesUtils.getBool(context, "showTip")) {
+        if (Math.abs(System.currentTimeMillis() - SharedPreferencesUtils.getLong(context, "time")) > 604800000)
+        {
+            if (!SharedPreferencesUtils.getBool(context, "showTip"))
+            {
                 String tip_url = NetAddressManager.root_website + NetAddressManager.tip + "?appVer="
                         + VersionUtils.getAppVersionName(context);
                 ApplyNetGson(handlerTip, tip_url);
-            } else {
+            }
+            else
+            {
                 SharedPreferencesUtils.put(context, "showTip", false);
             }
         }
     }
 
-    private void showTip(String str) {
-        if (str == null || "".equals(str)) {
+    private void showTip(String str)
+    {
+        if (str == null || "".equals(str))
+        {
             return;
         }
         PageModule tipModule;
         tipModule = ModuleParser.getPageModules(str);
-        if (tipModule == null || tipModule.errorCode != 200) {
+        if (tipModule == null || tipModule.errorCode != 200)
+        {
             return;
         }
-        dialog = new MyDialog(context, R.style.dialog,
-                tipModule.message == null ? "程序有未知错误" : tipModule.message);
+        dialog = new MyDialog(context, R.style.dialog, tipModule.message == null ? "程序有未知错误" : tipModule.message);
         dialog.setTitle(tipModule.title == null ? "提示" : tipModule.title);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setPositiveButton("不再提示");
         dialog.setNegativeButton("取消");
-        dialog.setOnCloseListener(new MyDialog.OnCloseListener() {
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
+        {
             @Override
-            public void onClick(Dialog dialog, boolean confirm) {
-                if (confirm) {
+            public void onClick(Dialog dialog, boolean confirm)
+            {
+                if (confirm)
+                {
                     Context ctx = new WeakReference<>(context).get();
                     SharedPreferencesUtils.put(ctx, "showTip", true);
                     SharedPreferencesUtils.put(context, "time", System.currentTimeMillis());
@@ -244,62 +250,100 @@ public class MainActivity extends BaseActivity {
         dialog.show();
     }
 
-    private void copyToClip(String redpay) {
-        if (redpay == null || "".equals(redpay)) {
+    private void copyToClip(String redpay)
+    {
+        if (redpay == null || "".equals(redpay))
+        {
             return;
         }
         ClipData myClip;
         myClip = ClipData.newPlainText("redpay", redpay);
         ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        if (cm != null) {
+        if (cm != null)
+        {
             cm.setPrimaryClip(myClip);
         }
     }
 
-    private void ApplyNetGson(final Handler handler, final String url) {
-        if (url == null || "".equals(url)) {
+    private void ApplyNetGson(final Handler handler, final String url)
+    {
+        if (url == null || "".equals(url))
+        {
             return;
         }
-        new Thread(new Runnable() {
+        new Thread(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 NetUtils.getAsynPageModulekHttp(handler, url);
             }
         }).start();
     }
 
     // 权限申请
-    public void checkAndApplyPermission() {
+    public void checkAndApplyPermission()
+    {
         if (ActivityCompat.checkSelfPermission(this,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        {
             ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
         }
     }
 
-    class FragmentAdapter extends FragmentPagerAdapter {
+    @Override
+    public void onBackPressed()
+    {
+        MyDialog dialog = new MyDialog(context, R.style.dialog, "客官再玩一会嘛,咩..^_^");
+        dialog.setTitle("退出");
+        dialog.setPositiveButton("退出");
+        dialog.setNegativeButton("取消");
+        dialog.setOnCloseListener(new MyDialog.OnCloseListener()
+        {
+            @Override
+            public void onClick(Dialog dialog, boolean confirm)
+            {
+                if (confirm)
+                {
+                    finish();
+                }
+            }
+        });
+        dialog.show();
+    }
+
+    class FragmentAdapter extends FragmentPagerAdapter
+    {
         private List<Fragment> fragments;
 
-        FragmentAdapter(FragmentManager fm) {
+        FragmentAdapter(FragmentManager fm)
+        {
             super(fm);
         }
 
-        void setFragments(List<Fragment> fragments) {
-            if (fragments != null && fragments.size() > 0) {
+        void setFragments(List<Fragment> fragments)
+        {
+            if (fragments != null && fragments.size() > 0)
+            {
                 this.fragments = fragments;
             }
         }
 
         @Override
-        public int getCount() {
-            if (fragments == null || fragments.size() == 0) {
+        public int getCount()
+        {
+            if (fragments == null || fragments.size() == 0)
+            {
                 return 0;
             }
             return fragments.size();
         }
 
         @Override
-        public Fragment getItem(int position) {
-            if (fragments == null || position > fragments.size()) {
+        public Fragment getItem(int position)
+        {
+            if (fragments == null || position > fragments.size())
+            {
                 return null;
             }
             return fragments.get(position);
